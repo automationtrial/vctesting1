@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008013</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:29:52.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_PARAM_VALIDITY</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;IS_EXT# = STR_FIND(&amp;INPUT_PARAM#, "EXT:")</OT_CONTENT>
+        <OT_CONTENT>! &amp;UC4RB_PV_ERRORS# must be declared beforehand.</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;IS_EXT# = 1</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;UC4RB_LOGGING_ERROR# = "&amp;INPUT_PARAM# is not valid. Maybe the value has not been passed from ARA."</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR.PARAMETER</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;UC4RB_PV_ERRORS# = 100</OT_CONTENT>
+        <OT_CONTENT>! :   IF &amp;UC4RB_AGENT_OS# = "WINDOWS"</OT_CONTENT>
+        <OT_CONTENT>! :     IF &amp;UC_WIN_TYP = "EXTCOMPROC"</OT_CONTENT>
+        <OT_CONTENT>!         $errors = 100</OT_CONTENT>
+        <OT_CONTENT>! :     ELSE</OT_CONTENT>
+        <OT_CONTENT>!         set /a errors=100</OT_CONTENT>
+        <OT_CONTENT>! :     ENDIF</OT_CONTENT>
+        <OT_CONTENT>! :   ENDIF</OT_CONTENT>
+        <OT_CONTENT>! :   IF &amp;UC4RB_AGENT_OS# = "UNIX"</OT_CONTENT>
+        <OT_CONTENT>!       errors=100</OT_CONTENT>
+        <OT_CONTENT>! :   ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

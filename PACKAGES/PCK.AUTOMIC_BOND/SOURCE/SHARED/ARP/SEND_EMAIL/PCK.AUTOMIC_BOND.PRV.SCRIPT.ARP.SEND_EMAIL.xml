@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <SCRI>
+    <OH>
+      <row>
+        <OH_IDNR>1008191</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>A</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:27.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_BOND.PRV.SCRIPT.ARP.SEND_EMAIL</OH_NAME>
+        <OH_OPU_FLAG>1</OH_OPU_FLAG>
+        <OH_OTYPE>SCRI</OH_OTYPE>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_TITLE>Send Email Script</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;OUT# = SEND_MAIL(&amp;TO_RECIPIENTS#, &amp;CC_RECIPIENTS#, &amp;SUBJECT#, &amp;BODY#,)</OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <ORA>
+      <row>
+      </row>
+    </ORA>
+    <OPU>
+      <row>
+        <OPU_LNR>1</OPU_LNR>
+        <OPU_NAME>PCK.AUTOMIC_BOND.PRV.PRPT.ARP.SEND_EMAIL</OPU_NAME>
+        <OPU_ORDER>1</OPU_ORDER>
+      </row>
+    </OPU>
+    <OPUD>
+      <row>
+        <OPUD_MSGNR>-1</OPUD_MSGNR>
+        <OPUD_OPU_LNR>1</OPUD_OPU_LNR>
+        <OPUD_PNAME>PCK.AUTOMIC_BOND.PRV.PRPT.ARP.SEND_EMAIL</OPUD_PNAME>
+        <OPUD_VNAME>BODY#</OPUD_VNAME>
+      </row>
+      <row>
+        <OPUD_MSGNR>-1</OPUD_MSGNR>
+        <OPUD_OPU_LNR>1</OPUD_OPU_LNR>
+        <OPUD_PNAME>PCK.AUTOMIC_BOND.PRV.PRPT.ARP.SEND_EMAIL</OPUD_PNAME>
+        <OPUD_VNAME>CC_RECIPIENTS#</OPUD_VNAME>
+      </row>
+      <row>
+        <OPUD_MSGNR>-1</OPUD_MSGNR>
+        <OPUD_OPU_LNR>1</OPUD_OPU_LNR>
+        <OPUD_PNAME>PCK.AUTOMIC_BOND.PRV.PRPT.ARP.SEND_EMAIL</OPUD_PNAME>
+        <OPUD_VNAME>SUBJECT#</OPUD_VNAME>
+      </row>
+      <row>
+        <OPUD_MSGNR>-1</OPUD_MSGNR>
+        <OPUD_OPU_LNR>1</OPUD_OPU_LNR>
+        <OPUD_PNAME>PCK.AUTOMIC_BOND.PRV.PRPT.ARP.SEND_EMAIL</OPUD_PNAME>
+        <OPUD_VNAME>TO_RECIPIENTS#</OPUD_VNAME>
+      </row>
+    </OPUD>
+    <ORB>
+      <row>
+      </row>
+    </ORB>
+  </SCRI>

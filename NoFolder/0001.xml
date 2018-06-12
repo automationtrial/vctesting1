@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <CLNT>
+    <OH>
+      <row>
+        <OH_IDNR>1001001</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-05-17 11:20:36.0</OH_CRDATE>
+        <OH_CRUSERIDNR>100090</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>100090</OH_MODUSERIDNR>
+        <OH_NAME>0001</OH_NAME>
+        <OH_OTYPE>CLNT</OH_OTYPE>
+        <OH_TITLE>Staging Client</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <MAND>
+      <row>
+      </row>
+    </MAND>
+  </CLNT>

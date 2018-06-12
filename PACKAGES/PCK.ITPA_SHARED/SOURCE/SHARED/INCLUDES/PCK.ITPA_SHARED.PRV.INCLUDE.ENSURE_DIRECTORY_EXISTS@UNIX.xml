@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008026</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:29:54.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PRV.INCLUDE.ENSURE_DIRECTORY_EXISTS@UNIX</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>if [ -d "&amp;DIRECTORY#" ] ;</OT_CONTENT>
+        <OT_CONTENT>then</OT_CONTENT>
+        <OT_CONTENT>  echo "&amp;DIRECTORY# directory already exists"</OT_CONTENT>
+        <OT_CONTENT>else</OT_CONTENT>
+        <OT_CONTENT>  mkdir -p "&amp;DIRECTORY#"</OT_CONTENT>
+        <OT_CONTENT>fi</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

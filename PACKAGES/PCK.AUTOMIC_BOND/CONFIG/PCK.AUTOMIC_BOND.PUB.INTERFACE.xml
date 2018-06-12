@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <VARA>
+    <OH>
+      <row>
+        <OH_IDNR>1008123</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CRDATE>2018-06-12 08:31:01.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_BOND.PUB.INTERFACE</OH_NAME>
+        <OH_OTYPE>VARA</OH_OTYPE>
+        <OH_SUBTYPE>XML</OH_SUBTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OVD>
+      <row>
+        <OVD_COLCOUNT>5</OVD_COLCOUNT>
+        <OVD_NOTFOUND>I</OVD_NOTFOUND>
+        <OVD_SORTORDER>0</OVD_SORTORDER>
+        <OVD_SOURCE>XML</OVD_SOURCE>
+        <OVD_TYPE>C</OVD_TYPE>
+        <OVD_VRNAME>FREI</OVD_VRNAME>
+      </row>
+    </OVD>
+    <OVW>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUEX>&lt;interface&gt;&lt;snapshot&gt;&lt;workflow application_name="PCK.SNAPSHOT" key="Snapshot.ReportWorkflow.Compare" workflow_name="PCK.SNAPSHOT.COMPARE"/&gt;&lt;workflow application_name="PCK.SNAPSHOT" key="Snapshot.ReportWorkflow.DetailCompare" workflow_name="PCK.SNAPSHOT.COMPAREDETAIL"/&gt;&lt;workflow application_name="PCK.SNAPSHOT" key="Snapshot.ReportWorkflow.Delete" workflow_name="PCK.SNAPSHOT.DELETE"/&gt;&lt;workflow application_name="PCK.SNAPSHOT" key="Snapshot.ReportWorkflow.DetailCompare.GetFileWorkflow" workflow_name="PCK.SNAPSHOT.GETFILE"/&gt;&lt;/snapshot&gt;&lt;templates&gt;&lt;add-template key="_FLOWS.APPLICATION_FLOW"&gt;PCK.AUTOMIC_BOND.TEMPLATE.APPLICATION_WORKFLOW&lt;/add-template&gt;&lt;add-template key="_FLOWS.COMPONENT_FLOW"&gt;PCK.AUTOMIC_BOND.TEMPLATE.COMPONENT_WORKFLOW&lt;/add-template&gt;&lt;add-template key="_FLOWS.GENERAL_FLOW"&gt;PCK.AUTOMIC_BOND.TEMPLATE.GENERAL_WORKFLOW&lt;/add-template&gt;&lt;/templates&gt;&lt;/interface&gt;</OVW_VALUEX>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>interface</OVW_VVALUE>
+      </row>
+    </OVW>
+  </VARA>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008056</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:30:01.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PRV.INCLUDE.SET_OS_FOR_COMPONENT_FLOW</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>!Check Overwrite Agent Object</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;AGENT_VALUE# = "AGENT#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;AGENT# = GET_SCRIPT_VAR(&amp;AGENT_VALUE#)</OT_CONTENT>
+        <OT_CONTENT>!check if the agent link was not resolved</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;AGENT# = "EXT:agent"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;AGENT# = "No_Agent_assigned"</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check Target ID</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;TARGET_ID_VALUE# = "TARGET_ID#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;TARGET_ID# = GET_SCRIPT_VAR(&amp;TARGET_ID_VALUE#)</OT_CONTENT>
+        <OT_CONTENT>!check if the target id link was not resolved</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;TARGET_ID# = "EXT:@target/system/id"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;TARGET_ID# = ""</OT_CONTENT>
+        <OT_CONTENT>:  PUB &amp;TARGET_ID#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!Starting HOSTG feature - only supported from v11.2.2</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;VERSION_MAJOR# = SYS_INFO(SERVER, VERSION,MAJOR)</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;VERSION_MINOR# = SYS_INFO(SERVER, VERSION,MINOR)</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;VERSION_PATCH# = SYS_INFO(SERVER, VERSION,PATCH)</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;VERSION_MINOR# = FORMAT(&amp;VERSION_MINOR#,"00")</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;VERSION_PATCH# = FORMAT(&amp;VERSION_PATCH#,"00")</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;VERSION_NUMBER# = &amp;VERSION_MAJOR#&amp;VERSION_MINOR#&amp;VERSION_PATCH#</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;VERSION_NUMBER# = CONVERT(unsigned,&amp;VERSION_NUMBER#)</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;VERSION_NUMBER# &gt;= 110202</OT_CONTENT>
+        <OT_CONTENT>!  Set COMPONENT_NAME# which is relevant for the installation records</OT_CONTENT>
+        <OT_CONTENT>:  PSET &amp;COMPONENT_NAME# = GET_ATT(COMPONENT_NAME)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!  check if agent is of type HOSTG</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;AGENT_TYPE# = GET_OBJECT_TYPE(&amp;AGENT#)</OT_CONTENT>
+        <OT_CONTENT>:  IF &amp;AGENT_TYPE# = "HOSTG"</OT_CONTENT>
+        <OT_CONTENT>:    PRINT Agent is of type HOSTG. Spinning of sub processes per Agent</OT_CONTENT>
+        <OT_CONTENT>!    Create temporary job group to bind individual component flow executions together</OT_CONTENT>
+        <OT_CONTENT>:    PSET &amp;GROUP# = "ARA_JOBG_&amp;$RUNID#"</OT_CONTENT>
+        <OT_CONTENT>:    PRINT Group: &amp;GROUP#</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;DUP# = DUPLICATE_OBJECT(&amp;GROUP#, "PCK.ITPA_SHARED.PRV.JOBG.COMPONENT_FLOW_TEMPLATE", "/PACKAGES/TEMP")</OT_CONTENT>
+        <OT_CONTENT>!    Cycle through all Agents the HOSTG returns</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;HND# = PREP_PROCESS_AGENTGROUP(&amp;AGENT#,"*",BY_RULE)</OT_CONTENT>
+        <OT_CONTENT>:    PROCESS &amp;HND#</OT_CONTENT>
+        <OT_CONTENT>!      Set the AGENT# to the current Agent in the cycle</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;AGENT# = GET_PROCESS_LINE(&amp;HND#,1)</OT_CONTENT>
+        <OT_CONTENT>:      PRINT "Agent: &amp;AGENT#"</OT_CONTENT>
+        <OT_CONTENT>!      Start myself, passing Variables (including the newly set AGENT#</OT_CONTENT>
+        <OT_CONTENT>!      ALIAS has to be the same, otherwise the deployment descriptor cannot be found</OT_CONTENT>
+        <OT_CONTENT>!      We will pass a Group instaed of a Queue - works now (other variations do NOT work, eg setting Group via script)</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;ACT# = ACTIVATE_UC_OBJECT(&amp;$NAME#,,,,,PASS_VALUES,&amp;GROUP#,&amp;$ALIAS#)</OT_CONTENT>
+        <OT_CONTENT>:    ENDPROCESS</OT_CONTENT>
+        <OT_CONTENT>:    CLOSE_PROCESS &amp;HND#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!    Add the JOBG object, which is binding the individual executions to the Application Flow</OT_CONTENT>
+        <OT_CONTENT>!    Use "CLONE_AND_REPLACE" so that all generated dependencies are inhereted correctly</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;LNR# = SYS_ACT_ME_LNR()</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;MOD_RET# = 1</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;MOD_TRIES# = 0</OT_CONTENT>
+        <OT_CONTENT>:    PRINT "Load HOSTG_MODIFY_TASK_MAX_RETRIES from UC_CLIENT_SETTING"</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;MOD_MAX# = GET_VAR('UC_CLIENT_SETTINGS', 'HOSTG_MODIFY_TASK_MAX_RETRIES')</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:    IF ISNUMERIC(&amp;MOD_MAX#) = "N"</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;MOD_MAX# = " "</OT_CONTENT>
+        <OT_CONTENT>:    ENDIF</OT_CONTENT>
+        <OT_CONTENT>:    IF &amp;MOD_MAX# = " "</OT_CONTENT>
+        <OT_CONTENT>:      PRINT "Could not found HOSTG_MODIFY_TASK_MAX_RETRIES in UC_CLIENT_SETTING or it isn't a valid number, use default value (60)"</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;MOD_MAX# = 60</OT_CONTENT>
+        <OT_CONTENT>:    ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!    Check if modifcation is already happening and retry after 1 second</OT_CONTENT>
+        <OT_CONTENT>:    WHILE &amp;MOD_RET# &lt;&gt; 0</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;MOD_RET# = MODIFY_TASK(&amp;$ACTIVATOR_RUNID#, STOP_MODIFY)</OT_CONTENT>
+        <OT_CONTENT>:      PRINT MOD_TASK returned: &amp;MOD_RET#</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;MOD_TRIES# = &amp;MOD_TRIES# + 1</OT_CONTENT>
+        <OT_CONTENT>:      IF &amp;MOD_TRIES# &gt; &amp;MOD_MAX#</OT_CONTENT>
+        <OT_CONTENT>:        PRINT "ERROR: Could not modify Application Workflow after &amp;MOD_MAX# tries. Exiting"</OT_CONTENT>
+        <OT_CONTENT>:        EXIT 1</OT_CONTENT>
+        <OT_CONTENT>:      ENDIF</OT_CONTENT>
+        <OT_CONTENT>:      WAIT 1</OT_CONTENT>
+        <OT_CONTENT>:    ENDWHILE</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;TASK_R_NUMBER# = MODIFY_TASK(&amp;$ACTIVATOR_RUNID#,&amp;$NAME#,&amp;LNR#,CLONE_AND_REPLACE,&amp;GROUP#)</OT_CONTENT>
+        <OT_CONTENT>!    Add TARGET_ID# and COMPONENT_NAME# to the task, so its status will be used to write installation records</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;RET_TID = MODIFY_TASK(&amp;$ACTIVATOR_RUNID#,&amp;GROUP#,&amp;TASK_R_NUMBER#,VALUE,"&lt;VALUE&gt;","&amp;&amp;TARGET_ID#",&amp;TARGET_ID#)</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;RET_CN = MODIFY_TASK(&amp;$ACTIVATOR_RUNID#,&amp;GROUP#,&amp;TASK_R_NUMBER#,VALUE,"&lt;VALUE&gt;","&amp;&amp;COMPONENT_NAME#",&amp;COMPONENT_NAME#)</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;RETCOMMIT# = MODIFY_TASK(&amp;$ACTIVATOR_RUNID#, COMMIT)</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;RETGO# = MODIFY_TASK(&amp;$ACTIVATOR_RUNID#, GO)</OT_CONTENT>
+        <OT_CONTENT>!    Unset these vars so this execution will not be used for installation records</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;COMPONENT_NAME# = ""</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;TARGET_ID# = ""</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;AGENT# = ""</OT_CONTENT>
+        <OT_CONTENT>!    Stop this component flow, as the work will be done by the individual executions</OT_CONTENT>
+        <OT_CONTENT>!    This one was only responsible for triggering</OT_CONTENT>
+        <OT_CONTENT>:    STOP NOMSG</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!Check Overwrite Agent Object</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;OVERWRITE_AGENT_VALUE# = "OVERWRITE_AGENT#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;OVERWRITE_AGENT# = GET_SCRIPT_VAR(&amp;OVERWRITE_AGENT_VALUE#)</OT_CONTENT>
+        <OT_CONTENT>!check if the agent link was not resolved</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;OVERWRITE_AGENT# = "EXT:/agent_assignment/agent"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;OVERWRITE_AGENT# = ""</OT_CONTENT>
+        <OT_CONTENT>:  PUB &amp;OVERWRITE_AGENT#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;OVERWRITE_AGENT# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;AGENT# = &amp;OVERWRITE_AGENT#</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check Overwrtie Login Object</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;OVERWRITE_LOGIN_VALUE# = "OVERWRITE_LOGIN#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;OVERWRITE_LOGIN# = GET_SCRIPT_VAR(&amp;OVERWRITE_LOGIN_VALUE#)</OT_CONTENT>
+        <OT_CONTENT>!check if the login link was not resolved</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;OVERWRITE_LOGIN# = "EXT:/agent_assignment/login"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;OVERWRITE_LOGIN# = ""</OT_CONTENT>
+        <OT_CONTENT>:  PUB &amp;OVERWRITE_LOGIN#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;OVERWRITE_LOGIN# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;LOGIN# = &amp;OVERWRITE_LOGIN#</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!get the agent OS type</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_AGENT_OS# = GET_VAR('UC_HOST_JCL_VAR', &amp;AGENT#)</OT_CONTENT>
+        <OT_CONTENT>:PRINT "COMPONENT-FLOW: &amp;AGENT# agent runs on &amp;UC4RB_AGENT_OS#"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!publish values for subordinate tasks</OT_CONTENT>
+        <OT_CONTENT>:PUB &amp;UC4RB_AGENT_OS#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:PUB &amp;AGENT#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:PUB &amp;LOGIN#,,TASK</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

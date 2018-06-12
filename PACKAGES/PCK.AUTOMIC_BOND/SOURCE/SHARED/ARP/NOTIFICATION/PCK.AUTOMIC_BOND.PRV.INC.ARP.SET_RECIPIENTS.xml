@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008188</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:26.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_BOND.PRV.INC.ARP.SET_RECIPIENTS</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;MY_STRING# = str_cat(&amp;RECIPIENTS#, ",")</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;COMMA# = ","</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;COMMA_POS# = str_find(&amp;MY_STRING#, &amp;COMMA#)</OT_CONTENT>
+        <OT_CONTENT>:WHILE &amp;COMMA_POS# &gt; 0</OT_CONTENT>
+        <OT_CONTENT>!  Parse current item</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;ITEM_LENGTH# = &amp;COMMA_POS# - 1</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;ITEM# = substr(&amp;MY_STRING#, 1, &amp;ITEM_LENGTH#)</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;ITEM# = str_trim(&amp;ITEM#)</OT_CONTENT>
+        <OT_CONTENT>:  IF str_length(&amp;ITEM#) &gt; 0</OT_CONTENT>
+        <OT_CONTENT>:    ADD_ATT RECIPIENT, &amp;ITEM#</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>!  Move to next item</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;COMMA_POS# = &amp;COMMA_POS# + 1</OT_CONTENT>
+        <OT_CONTENT>:  IF &amp;COMMA_POS# &lt;= str_length(&amp;MY_STRING#)</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;MY_STRING# = substr(&amp;MY_STRING#, &amp;COMMA_POS#)</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;COMMA_POS# = str_find(&amp;MY_STRING#, &amp;COMMA#)</OT_CONTENT>
+        <OT_CONTENT>:  ELSE</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;COMMA_POS# = 0</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDWHILE</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

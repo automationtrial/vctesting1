@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008206</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:31.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_BOND.PUB.INCLUDE.ESCAPE_ARG_VALUE</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_TITLE>Escape argument values</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <Docu type="0">
+<![CDATA[It escapes the Nexus input parameters and wrap the parameter surrounded by quotes(").
+]]>      </Docu>
+    </ODOC>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>! We escape double-quotes for java Strings</OT_CONTENT>
+        <OT_CONTENT>: SET &amp;TEMP# = STR_SUB("TEMP_OPTION_VALUE", """", "\""")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! then we add double-quotes to String to preserve spaces in value</OT_CONTENT>
+        <OT_CONTENT>: SET &amp;TEMP# = STR_CAT(""" ", &amp;TEMP#)</OT_CONTENT>
+        <OT_CONTENT>: SET &amp;TEMP# = STR_CAT(&amp;TEMP#, " """)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>: SET &amp;UC4RB_OPTION_VALUE# = &amp;TEMP#</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008203</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:31.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_BOND.PUB.INCLUDE.BUILD_JAVA_ARGUMENTS</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_TITLE>Build java arguments</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <Docu type="0">
+<![CDATA[This include is used add arguments which are common for all actions.This along with action specific arguments are passed to the java command while calling the nexus jar.
+It can be used for both Windows and Unix environment]]>      </Docu>
+    </ODOC>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>: SET &amp;UC4RB_JAVA_ARGUMENTS# = ""</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>: SET &amp;LEN# = LENGTH(&amp;UC4RB_OPTIONS#[],SIZE)</OT_CONTENT>
+        <OT_CONTENT>: SET &amp;IDX# = 1</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>: WHILE &amp;IDX# LE &amp;LEN#</OT_CONTENT>
+        <OT_CONTENT>! Concatinate option and its value</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;UC4RB_JAVA_ARGUMENTS# = STR_CAT( &amp;UC4RB_JAVA_ARGUMENTS#, &amp;UC4RB_OPTIONS#[&amp;IDX#])</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;UC4RB_JAVA_ARGUMENTS# = STR_CAT( &amp;UC4RB_JAVA_ARGUMENTS#, " ")</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;IDX# = &amp;IDX# + 1</OT_CONTENT>
+        <OT_CONTENT>: ENDWHILE</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

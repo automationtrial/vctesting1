@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008050</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:29:59.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PRV.INCLUDE.PREPARE_JOB</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>!get the agent OS type</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;AGENT# = GET_SCRIPT_VAR("AGENT#")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;AGENT# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:  PRINT "JOB: setting agent to &amp;AGENT#"</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;AGENT# = GET_ATT(HOST)</OT_CONTENT>
+        <OT_CONTENT>:  PRINT "JOB: agent is preconfigured to &amp;AGENT#"</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:PSET &amp;UC4RB_AGENT_OS# = GET_VAR('UC_HOST_JCL_VAR', &amp;AGENT#)</OT_CONTENT>
+        <OT_CONTENT>:PRINT "WORKFLOW: &amp;AGENT# agent runs on &amp;UC4RB_AGENT_OS#"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC_WIN_TYP = GET_SCRIPT_VAR("UC_WIN_TYP")</OT_CONTENT>
+        <OT_CONTENT>:PRINT "WIN_TYP: &amp;UC_WIN_TYP"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;JOB_TYPE# = "INVALID - JOB Object Type"</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC_WIN_TYP = "BAT" OR "KDO" OR "EXTCOMPROC"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;JOB_TYPE# = "WINDOWS"</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;UC_UNIX_TYPE = GET_ATT("UNIX_TYPE")</OT_CONTENT>
+        <OT_CONTENT>:  PRINT "UNIX_TYPE: &amp;UC_UNIX_TYPE"</OT_CONTENT>
+        <OT_CONTENT>:  IF &amp;UC_UNIX_TYPE = "SHELL_SCRIPT" OR "COMMAND"</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;JOB_TYPE# = "UNIX"</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;JOB_TYPE# = &amp;UC4RB_AGENT_OS#</OT_CONTENT>
+        <OT_CONTENT>:  PRINT "HEADER: check OS successfully - runbook (&amp;JOB_TYPE#) runs on &amp;UC4RB_AGENT_OS#"</OT_CONTENT>
+        <OT_CONTENT>:  PUT_ATT HOST = &amp;AGENT#</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>:  STOP NOMSG, 50, "HEADER: stop &amp;JOB_TYPE# runbook because it's a &amp;UC4RB_AGENT_OS# agent"</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_AGENT_WORKING_DIR# = GET_VAR('UC_EX_PATH_BIN', &amp;AGENT#)</OT_CONTENT>
+        <OT_CONTENT>:PRINT "HEADER: agent bin directory &amp;UC4RB_AGENT_WORKING_DIR#"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;LOGIN# = GET_SCRIPT_VAR("LOGIN#")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;LOGIN# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:  PRINT "JOB: setting login to &amp;LOGIN#"</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;LOGIN# = GET_ATT(LOGIN)</OT_CONTENT>
+        <OT_CONTENT>:  PRINT "JOB: login is preconfigured to &amp;LOGIN#"</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:PUT_ATT LOGIN = &amp;LOGIN#</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

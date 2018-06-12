@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBS>
+    <OH>
+      <row>
+        <OH_IDNR>1001006</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>A</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-05-17 11:22:17.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_HOSTATTRTYPEDST>WINDOWS</OH_HOSTATTRTYPEDST>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>JOBS.WIN.NEW.1</OH_NAME>
+        <OH_OTYPE>JOBS</OH_OTYPE>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_TITLE>Windows test</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>! insert these lines in your script to determine if an error occurred</OT_CONTENT>
+        <OT_CONTENT>ssh -T git@github.com</OT_CONTENT>
+        <OT_CONTENT>! @set retcode=%errorlevel%</OT_CONTENT>
+        <OT_CONTENT>! @if NOT %ERRORLEVEL% == 0 goto :retcode</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <JBA>
+      <row>
+        <JBA_HOSTATTRTYPE>WINDOWS</JBA_HOSTATTRTYPE>
+        <JBA_HOSTDST>WIN01_EC2AMAZ-2M02CIV</JBA_HOSTDST>
+        <JBA_LOGINDST>LOGIN</JBA_LOGINDST>
+        <JBA_OUTPUT>2</JBA_OUTPUT>
+        <JBA_REST>1='c:\'2='0'3='0'G='0'H='0'L='0'r=''5=''</JBA_REST>
+      </row>
+    </JBA>
+    <ORB>
+      <row>
+      </row>
+    </ORB>
+  </JOBS>

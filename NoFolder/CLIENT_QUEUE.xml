@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <QUEUE>
+    <OH>
+      <row>
+        <OH_IDNR>1001002</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-04-10 13:17:59.0</OH_CRDATE>
+        <OH_CRUSERIDNR>5</OH_CRUSERIDNR>
+        <OH_NAME>CLIENT_QUEUE</OH_NAME>
+        <OH_OTYPE>QUEUE</OH_OTYPE>
+        <OH_TITLE>Client queue for client 0001</OH_TITLE>
+        <OH_UC4PRIORITY>200</OH_UC4PRIORITY>
+      </row>
+    </OH>
+    <OUA>
+      <row>
+        <OUA_CURRMAXSLOTS>-1</OUA_CURRMAXSLOTS>
+        <OUA_CURRPRIORITY>200</OUA_CURRPRIORITY>
+        <OUA_ISCLIENTQUEUE>1</OUA_ISCLIENTQUEUE>
+        <OUA_MAXSLOTS>-1</OUA_MAXSLOTS>
+      </row>
+    </OUA>
+  </QUEUE>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008047</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:29:58.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PUB.INCLUDE.POWERSHELL_UTILITY</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:if &amp;uc_win_typ = "EXTCOMPROC"</OT_CONTENT>
+        <OT_CONTENT>:set &amp;UC_JOBMD   = get_var(UC_EX_JOB_MD)</OT_CONTENT>
+        <OT_CONTENT>:set &amp;UC_IP_PORT = get_var(UC_EX_IP_PORT)</OT_CONTENT>
+        <OT_CONTENT>:set &amp;UC_IP_ADR  = get_var(UC_EX_IP_ADDR)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if ($PSVersionTable.PSVersion.Major -le 2)</OT_CONTENT>
+        <OT_CONTENT>{</OT_CONTENT>
+        <OT_CONTENT>  $bindingFlags = [Reflection.BindingFlags] "Instance,NonPublic,GetField"</OT_CONTENT>
+        <OT_CONTENT>  $objectRef = $host.GetType().GetField("externalHostRef", $bindingFlags).GetValue($host)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  $bindingFlags = [Reflection.BindingFlags] "Instance,NonPublic,GetProperty"</OT_CONTENT>
+        <OT_CONTENT>  $consoleHost = $objectRef.GetType().GetProperty("Value", $bindingFlags).GetValue($objectRef, @())</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  [void] $consoleHost.GetType().GetProperty("IsStandardOutputRedirected", $bindingFlags).GetValue($consoleHost, @())</OT_CONTENT>
+        <OT_CONTENT>  $bindingFlags = [Reflection.BindingFlags] "Instance,NonPublic,GetField"</OT_CONTENT>
+        <OT_CONTENT>  $field = $consoleHost.GetType().GetField("standardOutputWriter", $bindingFlags)</OT_CONTENT>
+        <OT_CONTENT>  $field.SetValue($consoleHost, [Console]::Out)</OT_CONTENT>
+        <OT_CONTENT>  $field2 = $consoleHost.GetType().GetField("standardErrorWriter", $bindingFlags)</OT_CONTENT>
+        <OT_CONTENT>  $field2.SetValue($consoleHost, [Console]::Out)</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!Function calls the messanger executable and generate the output</OT_CONTENT>
+        <OT_CONTENT>function __call_messanger( $typ, $retcode )</OT_CONTENT>
+        <OT_CONTENT>{</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC_PS_JOBMD_QUOTE_CHK = STR_FIND(&amp;UC_JOBMD,'"')</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC_PS_JOBMD_QUOTE_CHK &lt;&gt; 0</OT_CONTENT>
+        <OT_CONTENT>  $exe    = &amp;UC_JOBMD</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>  $exe    = "&amp;UC_JOBMD"</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>  $jobid  = "JNR=&amp;UC_REALNR"</OT_CONTENT>
+        <OT_CONTENT>  $client = "MNR=&amp;UC_MANDANT"</OT_CONTENT>
+        <OT_CONTENT>  $port   = "PNR=&amp;UC_IP_PORT"</OT_CONTENT>
+        <OT_CONTENT>  $ip     = "IPA=&amp;UC_IP_ADR"</OT_CONTENT>
+        <OT_CONTENT>  $type   = "TYP=$typ"</OT_CONTENT>
+        <OT_CONTENT>  $rc     = "RET=$retcode"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  if( $typ -eq "E" )</OT_CONTENT>
+        <OT_CONTENT>  {</OT_CONTENT>
+        <OT_CONTENT>    $txt = "TXT=        Job ended with retcode"</OT_CONTENT>
+        <OT_CONTENT>    &amp; $exe $jobid $client $port $ip $type $txt $rc</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>  else</OT_CONTENT>
+        <OT_CONTENT>  {</OT_CONTENT>
+        <OT_CONTENT>    $txt = "TXT=        Job started"</OT_CONTENT>
+        <OT_CONTENT>    &amp; $exe $jobid $client $port $ip $type $rc $txt</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>  if( $LastExitCode -ne 0 )</OT_CONTENT>
+        <OT_CONTENT>  {</OT_CONTENT>
+        <OT_CONTENT>    __uc_return( $LastExitCode )</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!Common function for returning from UC4 script</OT_CONTENT>
+        <OT_CONTENT>!Function calls the Messanger and generate the UC4 return code</OT_CONTENT>
+        <OT_CONTENT>function __uc_return( $retcode )</OT_CONTENT>
+        <OT_CONTENT>{</OT_CONTENT>
+        <OT_CONTENT>  __call_messanger "E" $retcode</OT_CONTENT>
+        <OT_CONTENT>  if( $LastExitCode -ne 0 )</OT_CONTENT>
+        <OT_CONTENT>  {</OT_CONTENT>
+        <OT_CONTENT>    Write "ATTENTION - UC4:JOBMESSENGER failed"</OT_CONTENT>
+        <OT_CONTENT>    Write "JOB ended with RETCODE $retcode"</OT_CONTENT>
+        <OT_CONTENT>    Write "JOBMSG ended with RETCODE $retcode"</OT_CONTENT>
+        <OT_CONTENT>    Write "JOB will abort with RETCODE from JOBMSG step"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>  exit $retcode</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>__call_messanger "S" "0"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!Generic PowerShell exception handling,</OT_CONTENT>
+        <OT_CONTENT>!catch all unhandle exceptions and ends UC4 script with return code 9999</OT_CONTENT>
+        <OT_CONTENT>trap [Exception]</OT_CONTENT>
+        <OT_CONTENT>{</OT_CONTENT>
+        <OT_CONTENT>  Write ""</OT_CONTENT>
+        <OT_CONTENT>  Write $("Exception found: " + $_.Exception.GetType().FullName);</OT_CONTENT>
+        <OT_CONTENT>  Write $("Exception text: " + $_.Exception.Message);</OT_CONTENT>
+        <OT_CONTENT>  Write ""</OT_CONTENT>
+        <OT_CONTENT>  __uc_return( 9999 )</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:endif</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

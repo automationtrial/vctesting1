@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008138</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:07.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_BOND.PUB.INCLUDE.GET_ARTIFACT.SET_EXEC_ENVIRONMENT</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_TITLE>Set the execution environment for artifact transfer tool</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <Docu type="0">
+<![CDATA[This include is used to prepare the execution environment for the nexus action.It changes the current directory to agents bin directory and where it attaches the nexus jar to the current environment.This environment setting is used to run the java command for the action.
+It can be used for both Windows and Unix environment]]>      </Docu>
+    </ODOC>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>! Setting execution environment</OT_CONTENT>
+        <OT_CONTENT>! Print Header</OT_CONTENT>
+        <OT_CONTENT>:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION</OT_CONTENT>
+        <OT_CONTENT>:INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN</OT_CONTENT>
+        <OT_CONTENT>:ATTACH_RES "PCK.AUTOMIC_BOND.PRV.STORE.ARTIFACT_TRANSFER" ,"ARTIFACT_TRANSFER_TOOL", C, N</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Setting jar class path into variable</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_PATH_JAR#= STR_CAT(&amp;$AGENT_RESOURCES_CLIENT#,"artifact-transfer-tool.jar")</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

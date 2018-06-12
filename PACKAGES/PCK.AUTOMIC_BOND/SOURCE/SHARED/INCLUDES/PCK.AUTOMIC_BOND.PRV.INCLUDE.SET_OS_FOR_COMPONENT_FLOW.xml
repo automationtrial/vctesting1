@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008198</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:29.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_BOND.PRV.INCLUDE.SET_OS_FOR_COMPONENT_FLOW</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>!Check Overwrite Agent Object</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;AGENT_VALUE# = "AGENT#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;AGENT# = GET_SCRIPT_VAR(&amp;AGENT_VALUE#)</OT_CONTENT>
+        <OT_CONTENT>!check if the agent link was not resolved</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;AGENT# = "EXT:agent"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;AGENT# = "No_Agent_assigned"</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!Check Overwrite Agent Object</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;OVERWRITE_AGENT_VALUE# = "OVERWRITE_AGENT#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;OVERWRITE_AGENT# = GET_SCRIPT_VAR(&amp;OVERWRITE_AGENT_VALUE#)</OT_CONTENT>
+        <OT_CONTENT>!check if the agent link was not resolved</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;OVERWRITE_AGENT# = "EXT:/agent_assignment/agent"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;OVERWRITE_AGENT# = ""</OT_CONTENT>
+        <OT_CONTENT>:  PUB &amp;OVERWRITE_AGENT#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;OVERWRITE_AGENT# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;AGENT# = &amp;OVERWRITE_AGENT#</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check Overwrtie Login Object</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;OVERWRITE_LOGIN_VALUE# = "OVERWRITE_LOGIN#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;OVERWRITE_LOGIN# = GET_SCRIPT_VAR(&amp;OVERWRITE_LOGIN_VALUE#)</OT_CONTENT>
+        <OT_CONTENT>!check if the login link was not resolved</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;OVERWRITE_LOGIN# = "EXT:/agent_assignment/login"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;OVERWRITE_LOGIN# = ""</OT_CONTENT>
+        <OT_CONTENT>:  PUB &amp;OVERWRITE_LOGIN#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;OVERWRITE_LOGIN# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;LOGIN# = &amp;OVERWRITE_LOGIN#</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check Target ID</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;TARGET_ID_VALUE# = "TARGET_ID#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;TARGET_ID# = GET_SCRIPT_VAR(&amp;TARGET_ID_VALUE#)</OT_CONTENT>
+        <OT_CONTENT>!check if the target id link was not resolved</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;TARGET_ID# = "EXT:@target/system/id"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;TARGET_ID# = ""</OT_CONTENT>
+        <OT_CONTENT>:  PUB &amp;TARGET_ID#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!get the agent OS type</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_AGENT_OS# = GET_VAR('UC_HOST_JCL_VAR', &amp;AGENT#)</OT_CONTENT>
+        <OT_CONTENT>:PRINT "COMPONENT-FLOW: &amp;AGENT# agent runs on &amp;UC4RB_AGENT_OS#"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!publish values for subordinate tasks</OT_CONTENT>
+        <OT_CONTENT>:PUB &amp;UC4RB_AGENT_OS#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:PUB &amp;AGENT#,,TASK</OT_CONTENT>
+        <OT_CONTENT>:PUB &amp;LOGIN#,,TASK</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

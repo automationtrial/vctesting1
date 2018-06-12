@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008059</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:30:02.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PRV.INCLUDE.SUDO_EXECUTION</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:IF &amp;UC4RB_SUDO_PASSWORD# &lt;&gt; "" OR "--10"</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;UC4RB_ENCRYPTED_PASSWORD_TMP# = '&amp;UC4RB_SUDO_PASSWORD#'</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.DECRYPT_PASSWORD</OT_CONTENT>
+        <OT_CONTENT>!  fallback in case awk doesn't work</OT_CONTENT>
+        <OT_CONTENT>   if [ "x$1" != "xno_sudo_recursion" ]; then</OT_CONTENT>
+        <OT_CONTENT>     tmp=/tmp/sudo.$$.&amp;$ACTIVATOR_RUNID#</OT_CONTENT>
+        <OT_CONTENT>     echo &gt;$tmp "[ -r /etc/profile ] &amp;&amp;&amp; . /etc/profile"</OT_CONTENT>
+        <OT_CONTENT>     echo &gt;&gt;$tmp "[ -r .profile ] &amp;&amp;&amp; . \"`pwd`/.profile\""</OT_CONTENT>
+        <OT_CONTENT>     awk &lt;"$0" &gt;&gt;$tmp '/^### START SUDO HERE ###$/ {echo=1} {if (echo) print}'</OT_CONTENT>
+        <OT_CONTENT>     echo "$UC4_DECRYPTED_PWD" | sudo -S sh $tmp no_sudo_recursion</OT_CONTENT>
+        <OT_CONTENT>     rc=$?</OT_CONTENT>
+        <OT_CONTENT>     sudo -k</OT_CONTENT>
+        <OT_CONTENT>     rm $tmp</OT_CONTENT>
+        <OT_CONTENT>     exit $rc</OT_CONTENT>
+        <OT_CONTENT>   fi</OT_CONTENT>
+        <OT_CONTENT>### START SUDO HERE ###</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

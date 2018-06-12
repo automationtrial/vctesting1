@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008063</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:30:02.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PUB.INCLUDE.CHECK_SUDOERS</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;USE_SUDO# = "No"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;PARAM_USE_SUDO# = GET_PUBLISHED_VALUE(&amp;$RUNID#, UC4RB_USE_SUDO#)</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;PARAM_SUDO_PASSWORD# = GET_PUBLISHED_VALUE(&amp;$RUNID#, UC4RB_SUDO_PASSWORD#)</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;PARAM_SUDO_USER# = GET_PUBLISHED_VALUE(&amp;$RUNID#, UC4RB_SUDO_USER#)</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;login_user# = get_att(USERID)</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;PARAM_USE_SUDO# = "Sudo"</OT_CONTENT>
+        <OT_CONTENT>:  IF &amp;login_user# &lt;&gt; "root"</OT_CONTENT>
+        <OT_CONTENT>:    IF &amp;PARAM_SUDO_PASSWORD# NE "--10"</OT_CONTENT>
+        <OT_CONTENT>!      use SUDO with password</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;USE_SUDO# = "Yes"</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;UC4RB_ENCRYPTED_PASSWORD_TMP#="&amp;PARAM_SUDO_PASSWORD#"</OT_CONTENT>
+        <OT_CONTENT>:      INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.DECRYPT_PASSWORD</OT_CONTENT>
+        <OT_CONTENT>      echo 'Validating sudoer ...'</OT_CONTENT>
+        <OT_CONTENT>sudo -k</OT_CONTENT>
+        <OT_CONTENT>sudo -S -p '' -v &lt;&lt; EOF</OT_CONTENT>
+        <OT_CONTENT>$UC4_DECRYPTED_PWD</OT_CONTENT>
+        <OT_CONTENT>EOF</OT_CONTENT>
+        <OT_CONTENT>      RC=$?</OT_CONTENT>
+        <OT_CONTENT>      if [ "$RC" -ne "0" ] ; then</OT_CONTENT>
+        <OT_CONTENT>        exit $RC</OT_CONTENT>
+        <OT_CONTENT>      fi</OT_CONTENT>
+        <OT_CONTENT>:    ELSE</OT_CONTENT>
+        <OT_CONTENT>! try with sudo nopass</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;USE_SUDO# = "Yes"</OT_CONTENT>
+        <OT_CONTENT>sudo -k</OT_CONTENT>
+        <OT_CONTENT>echo '' | sudo -S -p '' -v</OT_CONTENT>
+        <OT_CONTENT>      RC=$?</OT_CONTENT>
+        <OT_CONTENT>      if [ "$RC" -ne "0" ] ; then</OT_CONTENT>
+        <OT_CONTENT>        echo ERROR: SUDO password is blank.</OT_CONTENT>
+        <OT_CONTENT>        exit $RC</OT_CONTENT>
+        <OT_CONTENT>      fi</OT_CONTENT>
+        <OT_CONTENT>!    use SUDO but didn't input SUDO_PASSWORD</OT_CONTENT>
+        <OT_CONTENT>    echo WARNING: SUDO password is blank, make sure that the current user has SUDO privileges WITHOUT password.</OT_CONTENT>
+        <OT_CONTENT>:    ENDIF</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

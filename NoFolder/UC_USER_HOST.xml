@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <VARA>
+    <OH>
+      <row>
+        <OH_IDNR>1002002</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_C0REF>1</OH_C0REF>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-05-17 11:21:39.0</OH_CRDATE>
+        <OH_CRUSERIDNR>5</OH_CRUSERIDNR>
+        <OH_MODUSERIDNR>5</OH_MODUSERIDNR>
+        <OH_NAME>UC_USER_HOST</OH_NAME>
+        <OH_OTYPE>VARA</OH_OTYPE>
+        <OH_SUBTYPE>STATIC</OH_SUBTYPE>
+        <OH_TITLE>Host names of active users</OH_TITLE>
+      </row>
+    </OH>
+    <OVW>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>ip-8-0-1-37</OVW_VALUE1>
+        <OVW_VRNAME>USS</OVW_VRNAME>
+        <OVW_VVALUE>0001066049</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1> </OVW_VALUE1>
+        <OVW_VRNAME>USS</OVW_VRNAME>
+        <OVW_VVALUE>0001066055</OVW_VVALUE>
+      </row>
+    </OVW>
+  </VARA>

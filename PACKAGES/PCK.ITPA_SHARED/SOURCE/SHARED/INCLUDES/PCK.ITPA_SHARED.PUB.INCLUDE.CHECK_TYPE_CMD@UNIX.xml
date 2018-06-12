@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008044</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:29:58.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PUB.INCLUDE.CHECK_TYPE_CMD@UNIX</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>! requires UC4 script variable &amp;UC4RB_CHECKME#</OT_CONTENT>
+        <OT_CONTENT>! different UNIX variable are set if the object is a directory, a file or doesn't exist</OT_CONTENT>
+        <OT_CONTENT>CHECKME="&amp;UC4RB_CHECKME#"</OT_CONTENT>
+        <OT_CONTENT>echo $CHECKME</OT_CONTENT>
+        <OT_CONTENT>ISDIR=0</OT_CONTENT>
+        <OT_CONTENT>ISFILE=0</OT_CONTENT>
+        <OT_CONTENT>EXIST=0</OT_CONTENT>
+        <OT_CONTENT>if [ -d "$CHECKME" ] ;</OT_CONTENT>
+        <OT_CONTENT>then</OT_CONTENT>
+        <OT_CONTENT>  ISDIR=1</OT_CONTENT>
+        <OT_CONTENT>  EXIST=1</OT_CONTENT>
+        <OT_CONTENT>else</OT_CONTENT>
+        <OT_CONTENT>  DIR=`dirname "$CHECKME"`</OT_CONTENT>
+        <OT_CONTENT>  BASE=`basename "$CHECKME"`</OT_CONTENT>
+        <OT_CONTENT>  cd "$DIR" &gt; /dev/null 2&gt;&amp;1</OT_CONTENT>
+        <OT_CONTENT>  RC=$?</OT_CONTENT>
+        <OT_CONTENT>  if [ "$RC" -eq "0" ] ;</OT_CONTENT>
+        <OT_CONTENT>  then</OT_CONTENT>
+        <OT_CONTENT>    if ls $BASE &gt; /dev/null 2&gt;&amp;1 ;</OT_CONTENT>
+        <OT_CONTENT>    then</OT_CONTENT>
+        <OT_CONTENT>      ISFILE=1</OT_CONTENT>
+        <OT_CONTENT>      EXIST=1</OT_CONTENT>
+        <OT_CONTENT>    fi</OT_CONTENT>
+        <OT_CONTENT>  fi</OT_CONTENT>
+        <OT_CONTENT>fi</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_LOGGING_INFO# = "&amp;UC4RB_CHECKME# is checked for being a dir/file and if it exist"</OT_CONTENT>
+        <OT_CONTENT>:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_LOGGING_INFO# = "ISDIR($ISDIR) ISFILE($ISFILE) EXIST($EXIST)"</OT_CONTENT>
+        <OT_CONTENT>:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_LOGGING_INFO# = "------------------------------"</OT_CONTENT>
+        <OT_CONTENT>:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

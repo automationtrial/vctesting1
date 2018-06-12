@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008041</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:29:57.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PRV.INCLUDE.RETRIEVE_LINE_BY_TEXT</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>!retrieves the report and searches for a given text and returns the line</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;HND# = PREP_PROCESS_REPORT(,,"REP","&amp;checkForText#")</OT_CONTENT>
+        <OT_CONTENT>:PROCESS &amp;HND#</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;UC4RB_RESULT_LINE# = GET_PROCESS_LINE(&amp;HND#)</OT_CONTENT>
+        <OT_CONTENT>:ENDPROCESS</OT_CONTENT>
+        <OT_CONTENT>:CLOSE_PROCESS &amp;HND#</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008028</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:29:55.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PRV.INCLUDE.ENSURE_DIRECTORY_EXISTS_POWERSHELL@WINDOWS</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>$Exists = Test-Path "&amp;DIRECTORY#" -pathType container</OT_CONTENT>
+        <OT_CONTENT>if (-not $Exists) {</OT_CONTENT>
+        <OT_CONTENT>  New-Item -ItemType directory -Path "&amp;DIRECTORY#"</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008193</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:28.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_BOND.PRV.INCLUDE.DISCOVERY.COPY_RESULT_TO_VARA</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;FOUND# = 0</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;HND# = PREP_PROCESS_REPORT("JOBS",, "REP", "JSON_DISCOVERY_RESULT:*")</OT_CONTENT>
+        <OT_CONTENT>:PROCESS &amp;HND#</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;LINE# = GET_PROCESS_LINE(&amp;HND#)</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;JSON# = STR_SUB (&amp;LINE#, "JSON_DISCOVERY_RESULT:", "")</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;TOP_RUNID# = SYS_ACT_TOP_NR()</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;TOP_RUNID# = FORMAT(&amp;TOP_RUNID#)</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;LENGTH# = STR_LENGTH(&amp;JSON#)</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;LENGTH# = FORMAT(&amp;LENGTH#)</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;VARA_TARGET_NAME# = PCK.AUTOMIC_BOND.DISCOVERY.RESULT.VARA.TEMP.&amp;TOP_RUNID#</OT_CONTENT>
+        <OT_CONTENT>:   PRINT "Writing discovery result to &amp;VARA_TARGET_NAME#"</OT_CONTENT>
+        <OT_CONTENT>:   PRINT "KEY (Run Id of the top workflow) is &amp;TOP_RUNID#"</OT_CONTENT>
+        <OT_CONTENT>:   PRINT "VALUE (JSON result) is &amp;LENGTH# characters long"</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;variableName# = &amp;VARA_TARGET_NAME#</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;variablePath# = ""</OT_CONTENT>
+        <OT_CONTENT>:   INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CREATE_PASS_VALUES_VARIABLE</OT_CONTENT>
+        <OT_CONTENT>:   PUT_VAR &amp;variableName#, &amp;TOP_RUNID#, &amp;JSON#</OT_CONTENT>
+        <OT_CONTENT>:   PRINT "Finish writing."</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;FOUND# = 1</OT_CONTENT>
+        <OT_CONTENT>:ENDPROCESS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;FOUND# = 0</OT_CONTENT>
+        <OT_CONTENT>:   PRINT "Cannot find JSON Discovery Result in the Job report."</OT_CONTENT>
+        <OT_CONTENT>:   EXIT 100</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <PRPT>
+    <OH>
+      <row>
+        <OH_IDNR>1008148</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:11.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_BOND.PRV.PROMPTSET.GET_ARTIFACT.FILTER</OH_NAME>
+        <OH_OTYPE>PRPT</OH_OTYPE>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_TITLE>Filter Files</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OPSA>
+      <row>
+        <OPSA_XUI>&lt;dialog height="516" icon="PRPT" id="PRPTS" left="279" top="4" width="589"&gt;&lt;readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Filter Files"&gt;&lt;properties&gt;&lt;entry name="text"&gt;Filter Files&lt;/entry&gt;&lt;entry name="modifiable"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/readpanel&gt;&lt;/dialog&gt;</OPSA_XUI>
+      </row>
+    </OPSA>
+    <OPSE>
+      <row>
+        <OPSE_LNR>1</OPSE_LNR>
+        <OPSE_MSGINSERT>0</OPSE_MSGINSERT>
+        <OPSE_NAME>LABEL1#</OPSE_NAME>
+        <OPSE_VALUE>Filter Options</OPSE_VALUE>
+        <OPSE_XUI>&lt;label fill="b" id="LABEL1s.00" nl="1" text="Filter Options" tooltip="" alt="0"&gt;&lt;properties&gt;&lt;entry name="id"&gt;LABEL1s.00&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="text"&gt;Filter Options&lt;/entry&gt;&lt;/properties&gt;&lt;/label&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>label</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>4</OPSE_LNR>
+        <OPSE_MSGINSERT>0</OPSE_MSGINSERT>
+        <OPSE_NAME>LABEL2#</OPSE_NAME>
+        <OPSE_VALUE>Rename Options</OPSE_VALUE>
+        <OPSE_XUI>&lt;label fill="b" id="LABEL2s.00" nl="1" text="Rename Options" tooltip="" alt="0"&gt;&lt;properties&gt;&lt;entry name="id"&gt;LABEL2s.00&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="text"&gt;Rename Options&lt;/entry&gt;&lt;/properties&gt;&lt;/label&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>label</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>8</OPSE_LNR>
+        <OPSE_MSGINSERT>0</OPSE_MSGINSERT>
+        <OPSE_NAME>LABEL3#</OPSE_NAME>
+        <OPSE_VALUE>Settings</OPSE_VALUE>
+        <OPSE_XUI>&lt;label fill="b" id="LABEL3s.00" nl="1" text="Settings" tooltip="" alt="0"&gt;&lt;properties&gt;&lt;entry name="id"&gt;LABEL3s.00&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="text"&gt;Settings&lt;/entry&gt;&lt;/properties&gt;&lt;/label&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>label</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>10</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_COPY_CASE_SENSITIVE#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup alt="1" enabled="1" fill="b" focus="0" id="UC4RB_COPY_CASE_SENSITIVEs.00" nl="1" quotes="" text="Case Sensitive" tooltip="" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Case Sensitive&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_COPY_CASE_SENSITIVEs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="initvalue"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>9</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_COPY_CLEAN_TARGET#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>YES</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup alt="1" enabled="1" fill="b" focus="0" id="UC4RB_COPY_CLEAN_TARGETs.00" nl="1" quotes="" text="Clean Up Target" tooltip="" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Clean Up Target&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_COPY_CLEAN_TARGETs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="initvalue"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>7</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_COPY_DUPLICATE_STRATEGY#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.AUTOMIC_BOND.PRV.VARA.DUPLICATE_STRATEGY</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>SKIP</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup alt="1" enabled="1" fill="b" focus="0" id="UC4RB_COPY_DUPLICATE_STRATEGYs.00" nl="1" quotes="" text="Duplicate Strategy" tooltip="Strategy to use when Pattern match with multiple files and Replacement pattern causes duplication. &amp;#10;&amp;#10; Skip: Keep the first file &amp;#10;&amp;#10; Override: Keep the last file &amp;#10;&amp;#10; Fail: Fail the task" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.AUTOMIC_BOND.PRV.VARA.DUPLICATE_STRATEGY&lt;/entry&gt;&lt;entry name="text"&gt;Duplicate Strategy&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_COPY_DUPLICATE_STRATEGYs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Strategy to use when Pattern match with multiple files and Replacement pattern causes duplication. 
+
+
+
+ Skip: Keep the first file 
+
+
+
+ Override: Keep the last file 
+
+
+
+ Fail: Fail the task&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="initvalue"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>3</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_COPY_EXCLUDES#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_COPY_EXCLUDESs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Excludes" tooltip="Set of comma separated exclude patterns using ANT matching rule. &amp;#10;&amp;#10;Example: **/*.log will exclude all .log files recursively" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Excludes&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_COPY_EXCLUDESs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Set of comma separated exclude patterns using ANT matching rule. 
+
+
+
+Example: **/*.log will exclude all .log files recursively&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>2</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_COPY_INCLUDES#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_COPY_INCLUDESs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Includes" tooltip="&amp;#9;Set of comma separated include patterns using ANT matching rule. &amp;#10;&amp;#10;Example: **/*.war,**/*.zip will get all .war and .zip files recursively" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Includes&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_COPY_INCLUDESs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;	Set of comma separated include patterns using ANT matching rule. 
+
+
+
+Example: **/*.war,**/*.zip will get all .war and .zip files recursively&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>5</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_COPY_RENAME_PATTERN#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_COPY_RENAME_PATTERNs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Pattern" tooltip="File names matching pattern using Java regular expression. &amp;#10;&amp;#10;E.g: (.*)+build\.(\d+).(.*)" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Pattern&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_COPY_RENAME_PATTERNs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;File names matching pattern using Java regular expression. 
+
+
+
+E.g: (.*)+build\.(\d+).(.*)&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>6</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_COPY_RENAME_REPLACEMENT#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_COPY_RENAME_REPLACEMENTs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Replacement" tooltip="Uses the &amp;apos;$1&amp;apos; syntax to refer to capture groups in the Pattern. &amp;#10;&amp;#10;E.g: Pattern: (.*)+build\.(\d+).(.*) and Replacement: $1.$3 would copy the file webui+build.12157.war to webui.war in Target Base Dir. &amp;#10;&amp;#10;If there are 2 files webui+build.12157.war and webui+build.12158.war, Duplicate Strategy will be use to resolve the situation" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Replacement&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_COPY_RENAME_REPLACEMENTs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Uses the &amp;apos;$1&amp;apos; syntax to refer to capture groups in the Pattern. 
+
+
+
+E.g: Pattern: (.*)+build\.(\d+).(.*) and Replacement: $1.$3 would copy the file webui+build.12157.war to webui.war in Target Base Dir. 
+
+
+
+If there are 2 files webui+build.12157.war and webui+build.12158.war, Duplicate Strategy will be use to resolve the situation&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+    </OPSE>
+  </PRPT>

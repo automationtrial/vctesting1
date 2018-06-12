@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008205</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:31.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_BOND.PUB.INCLUDE.ECHO_ON_OFF</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_TITLE>Echo enable/disable swtich statement</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <Docu type="0">
+<![CDATA[This include is used for echo ON or OFF
+It can be used for both Windows and Unix environment]]>      </Docu>
+    </ODOC>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SWITCH &amp;$PLATFORM#</OT_CONTENT>
+        <OT_CONTENT>:CASE "WINDOWS"</OT_CONTENT>
+        <OT_CONTENT>@echo off</OT_CONTENT>
+        <OT_CONTENT>:OTHER</OT_CONTENT>
+        <OT_CONTENT>:ENDSWITCH</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

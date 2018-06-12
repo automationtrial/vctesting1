@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <PRPT>
+    <OH>
+      <row>
+        <OH_IDNR>1008152</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:13.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_BOND.PRV.PROMPTSET.GET_ARTIFACT.HOOK.DOWNLOAD</OH_NAME>
+        <OH_OTYPE>PRPT</OH_OTYPE>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_TITLE>Download Artifact</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OPSA>
+      <row>
+        <OPSA_XUI>&lt;dialog height="424" icon="PRPT" id="PRPTS" left="0" top="0" width="441"&gt;&lt;readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Promptset"&gt;&lt;properties&gt;&lt;entry name="text"&gt;Promptset&lt;/entry&gt;&lt;entry name="modifiable"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/readpanel&gt;&lt;/dialog&gt;</OPSA_XUI>
+      </row>
+    </OPSA>
+    <OPSE>
+      <row>
+        <OPSE_LNR>3</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_ARTIFACT_DIR#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_ARTIFACT_DIRs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Artifact Dir" tooltip="" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;
+         
+      &lt;properties&gt;
+        &lt;entry listparam="C,N" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;
+        &lt;entry name="xmlkey"/&gt;
+        &lt;entry name="xmlpath"/&gt;
+        &lt;entry name="text"&gt;Artifact Dir&lt;/entry&gt;
+        &lt;entry name="multiline"&gt;0&lt;/entry&gt;
+        &lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;
+        &lt;entry name="multiselect"&gt;0&lt;/entry&gt;
+        &lt;entry name="separator"&gt;;&lt;/entry&gt;
+        &lt;entry name="len"/&gt;
+        &lt;entry name="quotes"/&gt;
+        &lt;entry name="id"&gt;UC4RB_ARTIFACT_DIRs.00&lt;/entry&gt;
+        &lt;entry name="regex"/&gt;
+        &lt;entry name="inputassistance"&gt;0&lt;/entry&gt;
+        &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+        &lt;entry name="required"&gt;0&lt;/entry&gt;
+        &lt;entry name="upper"&gt;0&lt;/entry&gt;
+        &lt;entry name="focus"&gt;0&lt;/entry&gt;
+        &lt;entry name="showaspassword"&gt;0&lt;/entry&gt;
+        &lt;entry name="tooltip"/&gt;
+        &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+        &lt;entry name="customfield"/&gt;
+        &lt;entry name="onchangereset"/&gt;
+        &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+      &lt;entry name="initvalue"/&gt;
+         &lt;/properties&gt;
+    &lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>4</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_OVERWRITE_FILES#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_XUI>&lt;dynradiogroup alt="1" enabled="1" fill="b" focus="" id="UC4RB_OVERWRITE_FILESs.00" nl="1" text="Overwrite Files" tooltip="" required="0"&gt;
+      &lt;properties&gt;
+        &lt;entry listparam="C,N" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;
+        &lt;entry name="xmlkey"/&gt;
+        &lt;entry name="xmlpath"/&gt;
+        &lt;entry name="text"&gt;Overwrite Files&lt;/entry&gt;
+        &lt;entry name="quotes"/&gt;
+        &lt;entry name="id"&gt;UC4RB_OVERWRITE_FILESs.00&lt;/entry&gt;
+        &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+        &lt;entry name="focus"&gt;0&lt;/entry&gt;
+        &lt;entry name="tooltip"/&gt;
+        &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+        &lt;entry name="customfield"/&gt;
+      &lt;entry name="initvalue"/&gt;
+         &lt;/properties&gt;
+    &lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>2</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_SOURCE_PATH#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_SOURCE_PATHs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Source Path" tooltip="" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;
+         
+      &lt;properties&gt;
+        &lt;entry listparam="C,N" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;
+        &lt;entry name="xmlkey"/&gt;
+        &lt;entry name="xmlpath"/&gt;
+        &lt;entry name="text"&gt;Source Path&lt;/entry&gt;
+        &lt;entry name="multiline"&gt;0&lt;/entry&gt;
+        &lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;
+        &lt;entry name="multiselect"&gt;0&lt;/entry&gt;
+        &lt;entry name="separator"&gt;;&lt;/entry&gt;
+        &lt;entry name="len"/&gt;
+        &lt;entry name="quotes"/&gt;
+        &lt;entry name="id"&gt;UC4RB_SOURCE_PATHs.00&lt;/entry&gt;
+        &lt;entry name="regex"/&gt;
+        &lt;entry name="inputassistance"&gt;0&lt;/entry&gt;
+        &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+        &lt;entry name="required"&gt;0&lt;/entry&gt;
+        &lt;entry name="upper"&gt;0&lt;/entry&gt;
+        &lt;entry name="focus"&gt;0&lt;/entry&gt;
+        &lt;entry name="showaspassword"&gt;0&lt;/entry&gt;
+        &lt;entry name="tooltip"/&gt;
+        &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+        &lt;entry name="customfield"/&gt;
+        &lt;entry name="onchangereset"/&gt;
+        &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+      &lt;entry name="initvalue"/&gt;
+         &lt;/properties&gt;
+    &lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>1</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TRANSFER_PROTOCOL#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_VALUE>EXT:@artifact_source/custom/protocol</OPSE_VALUE>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_TRANSFER_PROTOCOLs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Protocol" tooltip="" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;
+         
+      &lt;properties&gt;
+        &lt;entry listparam="C,N" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;
+        &lt;entry name="xmlkey"/&gt;
+        &lt;entry name="xmlpath"/&gt;
+        &lt;entry name="text"&gt;Protocol&lt;/entry&gt;
+        &lt;entry name="multiline"&gt;0&lt;/entry&gt;
+        &lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;
+        &lt;entry name="multiselect"&gt;0&lt;/entry&gt;
+        &lt;entry name="separator"&gt;;&lt;/entry&gt;
+        &lt;entry name="len"/&gt;
+        &lt;entry name="quotes"/&gt;
+        &lt;entry name="id"&gt;UC4RB_TRANSFER_PROTOCOLs.00&lt;/entry&gt;
+        &lt;entry name="regex"/&gt;
+        &lt;entry name="inputassistance"&gt;0&lt;/entry&gt;
+        &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+        &lt;entry name="required"&gt;0&lt;/entry&gt;
+        &lt;entry name="upper"&gt;0&lt;/entry&gt;
+        &lt;entry name="focus"&gt;0&lt;/entry&gt;
+        &lt;entry name="showaspassword"&gt;0&lt;/entry&gt;
+        &lt;entry name="tooltip"/&gt;
+        &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+        &lt;entry name="customfield"/&gt;
+        &lt;entry name="onchangereset"/&gt;
+        &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+      &lt;entry name="initvalue"/&gt;
+         &lt;/properties&gt;
+    &lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+    </OPSE>
+  </PRPT>

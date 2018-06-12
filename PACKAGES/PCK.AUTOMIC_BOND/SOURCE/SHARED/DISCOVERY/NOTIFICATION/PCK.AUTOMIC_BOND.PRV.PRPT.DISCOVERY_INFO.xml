@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <PRPT>
+    <OH>
+      <row>
+        <OH_IDNR>1008195</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:31:29.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_BOND.PRV.PRPT.DISCOVERY_INFO</OH_NAME>
+        <OH_OTYPE>PRPT</OH_OTYPE>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OPSA>
+      <row>
+        <OPSA_XUI>&lt;dialog height="506" icon="PRPT" id="PRPTS" left="279" top="4" width="420"&gt;&lt;readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Parameters"&gt;&lt;properties&gt;&lt;entry name="text"&gt;Parameters&lt;/entry&gt;&lt;entry name="modifiable"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/readpanel&gt;&lt;/dialog&gt;</OPSA_XUI>
+      </row>
+    </OPSA>
+    <OPSE>
+      <row>
+        <OPSE_LNR>2</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>AGENT#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="AGENTs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Agent" tooltip="" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Agent&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;AGENTs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>1</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>CUSTOM_TYPE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_UPPERCASE>1</OPSE_UPPERCASE>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="CUSTOM_TYPEs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Custom Type" tooltip="List of receivers, separated by comma" upper="1"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Custom Type&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;CUSTOM_TYPEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;1&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;List of receivers, separated by comma&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>3</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>LOGIN#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="LOGINs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Login" tooltip="" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Login&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;LOGINs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>6</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>MESSAGE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="MESSAGEs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" separator=";" showaspassword="0" text="Message" tooltip="" upper="0" alt="1" regex="" required="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Message&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;MESSAGEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>4</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>RUNID#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="RUNIDs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Run Id" tooltip="" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Run Id&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;RUNIDs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>5</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>SESSION_ID#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="SESSION_IDs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Session Id" tooltip="" upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Session Id&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;SESSION_IDs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"/&gt;&lt;entry name="customfield"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+    </OPSE>
+  </PRPT>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008065</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 08:30:03.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:IF &amp;$PLATFORM# = "UNIX"</OT_CONTENT>
+        <OT_CONTENT>:  INC PCK.ITPA_SHARED.PUB.INCLUDE.CHECK_SUDOERS</OT_CONTENT>
+        <OT_CONTENT>:  IF &amp;USE_SUDO# = "Yes"</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;UC4RB_AGENT_TEMP_DIR# = GET_VAR('UC_EX_PATH_TEMP', &amp;AGENT#)</OT_CONTENT>
+        <OT_CONTENT>!    Normalize file path</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;SEPARATOR_CHAR# = "/"</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;UC4RB_AGENT_TEMP_DIR# = STR_SUBSTITUTE (&amp;UC4RB_AGENT_TEMP_DIR#, "\", "/")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:    FILL &amp;STRING_ARR#[] = STR_SPLIT(&amp;UC4RB_AGENT_TEMP_DIR#, &amp;SEPARATOR_CHAR#)</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;UC4RB_AGENT_TEMP_DIR# = ""</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;VAR# = 1</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;LEN# = LENGTH(&amp;STRING_ARR#[],SIZE)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:    WHILE &amp;VAR# LE &amp;LEN#</OT_CONTENT>
+        <OT_CONTENT>:      IF "&amp;STRING_ARR#[&amp;VAR#]" &lt;&gt; ".." OR "." OR ""</OT_CONTENT>
+        <OT_CONTENT>:        SET &amp;UC4RB_AGENT_TEMP_DIR# = STR_CAT(&amp;UC4RB_AGENT_TEMP_DIR#, "&amp;SEPARATOR_CHAR#&amp;STRING_ARR#[&amp;VAR#]")</OT_CONTENT>
+        <OT_CONTENT>:      ELSE</OT_CONTENT>
+        <OT_CONTENT>:        IF "&amp;STRING_ARR#[&amp;VAR#]" EQ ".."</OT_CONTENT>
+        <OT_CONTENT>:          SET &amp;POS# = STR_FIND_REVERSE(&amp;UC4RB_AGENT_TEMP_DIR#, &amp;SEPARATOR_CHAR#)</OT_CONTENT>
+        <OT_CONTENT>:          SET &amp;POS# = &amp;POS# - 1</OT_CONTENT>
+        <OT_CONTENT>:          SET &amp;UC4RB_AGENT_TEMP_DIR# = STR_CUT(&amp;UC4RB_AGENT_TEMP_DIR#, 1, &amp;POS#)</OT_CONTENT>
+        <OT_CONTENT>:        ENDIF</OT_CONTENT>
+        <OT_CONTENT>:      ENDIF</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;VAR# = &amp;VAR# + 1</OT_CONTENT>
+        <OT_CONTENT>:    ENDWHILE</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;UC4RB_AGENT_TEMP_SUDO_FILE# = "&amp;UC4RB_AGENT_TEMP_DIR#/sudo&amp;$ACTIVATOR_RUNID#.sh"</OT_CONTENT>
+        <OT_CONTENT>echo "Creating temp file to sudo at &amp;UC4RB_AGENT_TEMP_SUDO_FILE# ..."</OT_CONTENT>
+        <OT_CONTENT>cat - 1&gt;&amp;UC4RB_AGENT_TEMP_SUDO_FILE# &lt;&lt;'EOF'</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>
