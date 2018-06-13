@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBS>
+    <OH>
+      <row>
+        <OH_IDNR>1008510</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>F</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:19.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_DEACTWHEN>ANY_OK</OH_DEACTWHEN>
+        <OH_HOSTATTRTYPEDST>WINDOWS</OH_HOSTATTRTYPEDST>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.JOB.START_SERVER@WINDOWS</OH_NAME>
+        <OH_OTYPE>JOBS</OH_OTYPE>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PUB.INCLUDE.POWERSHELL_UTILITY</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.GET_NETWORK_STATISTICS@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:DEFINE &amp;BOOTSTRAP#, string</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;BOOTSTRAP# = "org.apache.catalina.startup.Bootstrap"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_CONVERTED_STRING# = &amp;UC4RB_TC_HOME_DIR#</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CONVERT_SLASHES_WINDOWS_STYLE</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_HOME_DIR# = &amp;UC4RB_CONVERTED_STRING#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>Function fail_if_running {</OT_CONTENT>
+        <OT_CONTENT>:  IF  &amp;UC4RB_TC_FAIL_IF_RUNNING# = "YES"</OT_CONTENT>
+        <OT_CONTENT>  echo "Tomcat already running.";</OT_CONTENT>
+        <OT_CONTENT>  exit 1;</OT_CONTENT>
+        <OT_CONTENT>:  ELSE</OT_CONTENT>
+        <OT_CONTENT>  echo "OK.";</OT_CONTENT>
+        <OT_CONTENT>  exit 0;</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check config file</OT_CONTENT>
+        <OT_CONTENT>$existed = (Test-Path "&amp;UC4RB_TC_HOME_DIR#\conf\server.xml")</OT_CONTENT>
+        <OT_CONTENT>if (!$existed) {</OT_CONTENT>
+        <OT_CONTENT>  echo "File &amp;UC4RB_TC_HOME_DIR#\conf\server.xml does not existed.";</OT_CONTENT>
+        <OT_CONTENT>  echo "Error starting.";</OT_CONTENT>
+        <OT_CONTENT>  exit(2);</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Get port number</OT_CONTENT>
+        <OT_CONTENT>$portList=@()</OT_CONTENT>
+        <OT_CONTENT>(Select-Xml -path "&amp;UC4RB_TC_HOME_DIR#\conf\server.xml" -xpath "/Server/Service/Connector[@protocol='HTTP/1.1' or count(@protocol)=0]/@port") | foreach {</OT_CONTENT>
+        <OT_CONTENT>  $port=$_.Node."#text"</OT_CONTENT>
+        <OT_CONTENT>  $portList += $port;</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>$portList = $portList | select -uniq;</OT_CONTENT>
+        <OT_CONTENT>echo "The port of Tomcat is $portList"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Get Port status</OT_CONTENT>
+        <OT_CONTENT>$objects=@();</OT_CONTENT>
+        <OT_CONTENT>$pidList=@();</OT_CONTENT>
+        <OT_CONTENT>foreach ($port in $portList) {</OT_CONTENT>
+        <OT_CONTENT>  (Get-NetworkStatistics) | Where-Object {$_.State -eq "LISTENING" -and $_.LocalPort -eq $port} | foreach {</OT_CONTENT>
+        <OT_CONTENT>    $processId = $_.PID;</OT_CONTENT>
+        <OT_CONTENT>    $pidList += $processId;</OT_CONTENT>
+        <OT_CONTENT>    echo "ProcessId $processId is LISTENING at $port";</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>$isPortUsed=0;</OT_CONTENT>
+        <OT_CONTENT>if($pidList ){</OT_CONTENT>
+        <OT_CONTENT>  $pidList = $pidList | select -uniq;</OT_CONTENT>
+        <OT_CONTENT>  $isPortUsed = 1;</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if ($isPortUsed -eq 1) {</OT_CONTENT>
+        <OT_CONTENT>  echo "Port is already used.";</OT_CONTENT>
+        <OT_CONTENT>  foreach ($processId in $pidList) {</OT_CONTENT>
+        <OT_CONTENT>    $commandLine = (Get-WmiObject win32_process -Filter "ProcessId=$processId").CommandLine;</OT_CONTENT>
+        <OT_CONTENT>    $processName = (Get-WmiObject win32_process -Filter "ProcessId=$processId").Name;</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>    if ($processName -match "java") {</OT_CONTENT>
+        <OT_CONTENT>      $catalina_home = "&amp;UC4RB_TC_HOME_DIR#";</OT_CONTENT>
+        <OT_CONTENT>      $catalina_home = $catalina_home.Replace("\", "\\");</OT_CONTENT>
+        <OT_CONTENT>      if (($commandLine -match "&amp;BOOTSTRAP#") -and ($commandLine -match "start") -and ($commandLine -match "catalina.home=`"$catalina_home`"")) {</OT_CONTENT>
+        <OT_CONTENT>        fail_if_running;</OT_CONTENT>
+        <OT_CONTENT>      }</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>    if ($processName -match "tomcat") {</OT_CONTENT>
+        <OT_CONTENT>      $serviceName = $commandLine.Split("//")[-1];</OT_CONTENT>
+        <OT_CONTENT>      $service = Get-Service -name "$serviceName";</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>      if($service -and ($service.Status -eq "RUNNING")) {</OT_CONTENT>
+        <OT_CONTENT>        fail_if_running;</OT_CONTENT>
+        <OT_CONTENT>      }</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_START_MODE# = "SERVICE"</OT_CONTENT>
+        <OT_CONTENT>  $service = Get-Service -name "&amp;UC4RB_TC_SERVICE_NAME#";</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>  if($service -and ($service.Status -eq "RUNNING")) {</OT_CONTENT>
+        <OT_CONTENT>    fail_if_running;</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>  echo "Error starting."</OT_CONTENT>
+        <OT_CONTENT>  exit(2);</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT>else {</OT_CONTENT>
+        <OT_CONTENT>  echo "Port is not used.";</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_START_MODE# = "SCRIPT"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  $existed = (Test-Path "&amp;UC4RB_TC_HOME_DIR#\bin\startup.bat");</OT_CONTENT>
+        <OT_CONTENT>  if (!$existed) {</OT_CONTENT>
+        <OT_CONTENT>    echo "File &amp;UC4RB_TC_HOME_DIR#\bin\startup.bat does not existed.";</OT_CONTENT>
+        <OT_CONTENT>    echo "Error starting.";</OT_CONTENT>
+        <OT_CONTENT>    exit(2);</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Change directory to bin</OT_CONTENT>
+        <OT_CONTENT>  cd "&amp;UC4RB_TC_HOME_DIR#\bin";</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Backup setenv.bat if existed</OT_CONTENT>
+        <OT_CONTENT>  if (Test-Path "&amp;UC4RB_TC_HOME_DIR#\bin\setenv.bat") {</OT_CONTENT>
+        <OT_CONTENT>    Copy-Item .\setenv.bat .\temp_setenv.bat</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>! Create setenv.bat file to set JAVA_OPTS variable</OT_CONTENT>
+        <OT_CONTENT>  New-Item .\setenv.bat -type file -force -value "SET JAVA_OPTS=&amp;UC4RB_TC_JAVA_OPTIONS#";</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Call script</OT_CONTENT>
+        <OT_CONTENT>  .\startup.bat;</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  echo "Tomcat is starting now..."</OT_CONTENT>
+        <OT_CONTENT>  Start-Sleep -seconds 10</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Delete created file</OT_CONTENT>
+        <OT_CONTENT>  Remove-Item .\setenv.bat;</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Recover setenv.bat</OT_CONTENT>
+        <OT_CONTENT>  if (Test-Path "&amp;UC4RB_TC_HOME_DIR#\bin\temp_setenv.bat") {</OT_CONTENT>
+        <OT_CONTENT>    Copy-Item .\temp_setenv.bat .\setenv.bat;</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check port</OT_CONTENT>
+        <OT_CONTENT>  foreach ($port in $portList) {</OT_CONTENT>
+        <OT_CONTENT>    if ((netstat -naop TCP) | Select-String "$port") {</OT_CONTENT>
+        <OT_CONTENT>      echo "OK."</OT_CONTENT>
+        <OT_CONTENT>      exit(0);</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>    else {</OT_CONTENT>
+        <OT_CONTENT>      echo "Error starting."</OT_CONTENT>
+        <OT_CONTENT>      exit(2);</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>:  ELSE</OT_CONTENT>
+        <OT_CONTENT>! Get Service name</OT_CONTENT>
+        <OT_CONTENT>  $service = Get-Service -name "&amp;UC4RB_TC_SERVICE_NAME#";</OT_CONTENT>
+        <OT_CONTENT>  if (!$service) {</OT_CONTENT>
+        <OT_CONTENT>! Service is not installed and exit.</OT_CONTENT>
+        <OT_CONTENT>    echo "&amp;UC4RB_TC_SERVICE_NAME# service is not installed.";</OT_CONTENT>
+        <OT_CONTENT>    echo "Error starting."</OT_CONTENT>
+        <OT_CONTENT>    exit(2);</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>  else {</OT_CONTENT>
+        <OT_CONTENT>! Start service</OT_CONTENT>
+        <OT_CONTENT>    if ($service.Status -ne "RUNNING") {</OT_CONTENT>
+        <OT_CONTENT>      Start-Service &amp;UC4RB_TC_SERVICE_NAME#;</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>    } else {</OT_CONTENT>
+        <OT_CONTENT>      fail_if_running</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>    echo "Tomcat is starting now..."</OT_CONTENT>
+        <OT_CONTENT>    Start-Sleep -seconds 10</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Get service status and check if it is running.</OT_CONTENT>
+        <OT_CONTENT>    $service = Get-Service -name "&amp;UC4RB_TC_SERVICE_NAME#";</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>    $status = $service.Status</OT_CONTENT>
+        <OT_CONTENT>    if ($service.Status -eq "RUNNING") {</OT_CONTENT>
+        <OT_CONTENT>      echo "OK."</OT_CONTENT>
+        <OT_CONTENT>      exit(0);</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>    else {</OT_CONTENT>
+        <OT_CONTENT>      echo "Error starting."</OT_CONTENT>
+        <OT_CONTENT>      exit(2);</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+      </OT_Type>
+      <OT_Type value="1">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.PREPARE_JOB</OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <JBA>
+      <row>
+        <JBA_ACTATRUN>1</JBA_ACTATRUN>
+        <JBA_HOSTATTRTYPE>WINDOWS</JBA_HOSTATTRTYPE>
+        <JBA_HOSTDST>&lt;WIN&gt;</JBA_HOSTDST>
+        <JBA_OUTPUT>2</JBA_OUTPUT>
+        <JBA_REST>1='c:\'2='2'3='0'G='0'H='0'L='0'r='0'5=''</JBA_REST>
+      </row>
+    </JBA>
+    <ORB>
+      <row>
+      </row>
+    </ORB>
+  </JOBS>

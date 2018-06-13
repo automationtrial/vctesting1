@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <VARA>
+    <OH>
+      <row>
+        <OH_IDNR>1008375</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CRDATE>2018-06-12 14:23:49.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_JDBC.PUB.INTERFACE</OH_NAME>
+        <OH_OTYPE>VARA</OH_OTYPE>
+        <OH_SUBTYPE>XML</OH_SUBTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OVD>
+      <row>
+        <OVD_COLCOUNT>5</OVD_COLCOUNT>
+        <OVD_NOTFOUND>I</OVD_NOTFOUND>
+        <OVD_SORTORDER>0</OVD_SORTORDER>
+        <OVD_SOURCE>XML</OVD_SOURCE>
+        <OVD_TYPE>C</OVD_TYPE>
+        <OVD_VRNAME>FREI</OVD_VRNAME>
+      </row>
+    </OVD>
+    <OVW>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUEX>&lt;interface&gt;&lt;artifact-transfer&gt;&lt;registry vara="PCK.AUTOMIC_BOND.PUB.PROMPT_EXTERNAL_MAP"&gt;&lt;entry key="PCK.AUTOMIC_BOND.PUB.ACTION.GET_ARTIFACT/UC4RB_COPY_INCLUDES#/Database JDBC" value-0="**/*.sql" value-1="" value-2=""/&gt;&lt;/registry&gt;&lt;/artifact-transfer&gt;&lt;/interface&gt;</OVW_VALUEX>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>interface</OVW_VVALUE>
+      </row>
+    </OVW>
+  </VARA>

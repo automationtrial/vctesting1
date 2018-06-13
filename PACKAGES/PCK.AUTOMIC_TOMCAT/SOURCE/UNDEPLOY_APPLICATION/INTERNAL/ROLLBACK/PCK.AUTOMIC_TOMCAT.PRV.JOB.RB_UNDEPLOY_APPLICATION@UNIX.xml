@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBS>
+    <OH>
+      <row>
+        <OH_IDNR>1008530</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>F</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:29.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_DEACTWHEN>ANY_OK</OH_DEACTWHEN>
+        <OH_HOSTATTRTYPEDST>UNIX</OH_HOSTATTRTYPEDST>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.JOB.RB_UNDEPLOY_APPLICATION@UNIX</OH_NAME>
+        <OH_OTYPE>JOBS</OH_OTYPE>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:INCLUDE PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.ATTACH</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_CONVERTED_STRING# = &amp;UC4RB_TC_HOME_DIR#</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CONVERT_SLASHES_UNIX_STYLE</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_HOME_DIR# = &amp;UC4RB_CONVERTED_STRING#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>function deploy_application {</OT_CONTENT>
+        <OT_CONTENT>  if [ -d "$1" ] || [ -f "$1" ] ;</OT_CONTENT>
+        <OT_CONTENT>  then</OT_CONTENT>
+        <OT_CONTENT>    path="file:/$1"</OT_CONTENT>
+        <OT_CONTENT>    java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" tomcat DeployApplication "&amp;UC4RB_TC_HOME_DIR#" &amp;UC4RB_TC_BASE_URL# &amp;UC4RB_TC_MGR_APP# &amp;UC4RB_TC_USERNAME# &amp;UC4RB_TC_PASSWORD# "$path" "&amp;UC4RB_TC_CONTEXT_PATH#" "NO" "NO" "NO" "NO"</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX</OT_CONTENT>
+        <OT_CONTENT>    return</OT_CONTENT>
+        <OT_CONTENT>  fi</OT_CONTENT>
+        <OT_CONTENT>  echo "'$1' does not exist for rollback."</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>server_xml="&amp;UC4RB_TC_HOME_DIR#/conf/server.xml"</OT_CONTENT>
+        <OT_CONTENT>app_path="&amp;UC4RB_BACKUP_DIRECTORY#/&amp;UC4RB_TC_CONTEXT_NAME#"</OT_CONTENT>
+        <OT_CONTENT>if [ ! -d "$app_path" ] ;</OT_CONTENT>
+        <OT_CONTENT>then</OT_CONTENT>
+        <OT_CONTENT>  app_path="$app_path.war"</OT_CONTENT>
+        <OT_CONTENT>fi</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_APP_EXIST# = "YES"</OT_CONTENT>
+        <OT_CONTENT>  echo "Application '&amp;UC4RB_TC_CONTEXT_NAME#' exist before. Deploy application..."</OT_CONTENT>
+        <OT_CONTENT>:    IF &amp;UC4RB_SERVER_FARM# = "YES"</OT_CONTENT>
+        <OT_CONTENT>       watchDir=$(echo 'xpath /Server/Service/Engine/Host/Cluster/Deployer[@watchEnabled="true"]/@watchDir' |</OT_CONTENT>
+        <OT_CONTENT>         xmllint --shell "$server_xml" | grep "content=" | awk -F"=" '{print $NF}')</OT_CONTENT>
+        <OT_CONTENT>       if [ -z "$watchDir" ] ;</OT_CONTENT>
+        <OT_CONTENT>       then</OT_CONTENT>
+        <OT_CONTENT>         echo "Server assumes not cluster deployment or watchDir is not specified."</OT_CONTENT>
+        <OT_CONTENT>         deploy_application "$app_path"</OT_CONTENT>
+        <OT_CONTENT>       else</OT_CONTENT>
+        <OT_CONTENT>         echo "Server is cluster deployment. Copy '$app_path' to '$watchDir'."</OT_CONTENT>
+        <OT_CONTENT>         \cp -f -r "$app_path" "$watchDir"</OT_CONTENT>
+        <OT_CONTENT>       fi</OT_CONTENT>
+        <OT_CONTENT>:      ELSE</OT_CONTENT>
+        <OT_CONTENT>       echo "Server assumes not cluster deployment."</OT_CONTENT>
+        <OT_CONTENT>       deploy_application "$app_path"</OT_CONTENT>
+        <OT_CONTENT>:    ENDIF</OT_CONTENT>
+        <OT_CONTENT>:  ELSE</OT_CONTENT>
+        <OT_CONTENT>  echo "Application '&amp;UC4RB_TC_CONTEXT_NAME#' does not exist before."</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+      </OT_Type>
+      <OT_Type value="1">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.PREPARE_JOB</OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <JBA>
+      <row>
+        <JBA_ACTATRUN>1</JBA_ACTATRUN>
+        <JBA_HOSTATTRTYPE>UNIX</JBA_HOSTATTRTYPE>
+        <JBA_HOSTDST>&lt;UNIX&gt;</JBA_HOSTDST>
+        <JBA_OUTPUT>2</JBA_OUTPUT>
+        <JBA_PRIORITY>0</JBA_PRIORITY>
+        <JBA_REST>M=''N=''2=''Y=''</JBA_REST>
+      </row>
+    </JBA>
+    <ORB>
+      <row>
+      </row>
+    </ORB>
+  </JOBS>

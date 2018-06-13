@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <DOCU>
+    <OH>
+      <row>
+        <OH_IDNR>1008690</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:30:47.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_JAVA_PROPERTIES.PUB.DOC</OH_NAME>
+        <OH_OTYPE>DOCU</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <Docu type="0">
+<![CDATA[Contains actions to manipulate variables in a Java .properties file.
+
+=Supported versions=
+
+See http://docs.automic.com/compatibility?len=Package.Java.Properties&comp=PCK.AUTOMIC_JAVA_PROPERTIES&version=1.1.1
+]]>      </Docu>
+    </ODOC>
+  </DOCU>

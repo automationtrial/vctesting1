@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBS>
+    <OH>
+      <row>
+        <OH_IDNR>1008525</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>F</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:27.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_DEACTWHEN>ANY_OK</OH_DEACTWHEN>
+        <OH_HOSTATTRTYPEDST>UNIX</OH_HOSTATTRTYPEDST>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.JOB.UNDEPLOY_APPLICATION@UNIX</OH_NAME>
+        <OH_OTYPE>JOBS</OH_OTYPE>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:INCLUDE PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.ATTACH</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_CONVERTED_STRING# = &amp;UC4RB_TC_HOME_DIR#</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CONVERT_SLASHES_UNIX_STYLE</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_HOME_DIR# = &amp;UC4RB_CONVERTED_STRING#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;LENGTH# = STR_LENGTH(&amp;UC4RB_TC_CONTEXT_PATH#)</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;BEGIN_CHAR# = STR_CUT(&amp;UC4RB_TC_CONTEXT_PATH#, 1, 1)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;BEGIN_CHAR# = "/"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;LENGTH# = &amp;LENGTH# -1</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_CONTEXT_NAME# = STR_CUT(&amp;UC4RB_TC_CONTEXT_PATH#, 2, &amp;LENGTH#)</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_CONTEXT_NAME# = &amp;UC4RB_TC_CONTEXT_PATH#</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>function undeloy_application {</OT_CONTENT>
+        <OT_CONTENT>  java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" tomcat UndeployApplication "&amp;UC4RB_TC_HOME_DIR#" &amp;UC4RB_TC_BASE_URL# &amp;UC4RB_TC_MGR_APP# &amp;UC4RB_TC_USERNAME# &amp;UC4RB_TC_PASSWORD# "&amp;UC4RB_TC_APPBASE#" "&amp;UC4RB_TC_CONTEXT_PATH#" &amp;UC4RB_TC_FAIL_IF_NOT_DEPLOYED#</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check config file exist</OT_CONTENT>
+        <OT_CONTENT>server_xml="&amp;UC4RB_TC_HOME_DIR#/conf/server.xml"</OT_CONTENT>
+        <OT_CONTENT>if [ ! -f "$server_xml" ] ;</OT_CONTENT>
+        <OT_CONTENT>then</OT_CONTENT>
+        <OT_CONTENT>  echo "'$server_xml' did not exist."</OT_CONTENT>
+        <OT_CONTENT>  undeloy_application</OT_CONTENT>
+        <OT_CONTENT>else</OT_CONTENT>
+        <OT_CONTENT>! Extract the watch-directory from the server.xml file</OT_CONTENT>
+        <OT_CONTENT>  watchDir=$(echo 'xpath /Server/Service/Engine/Host/Cluster/Deployer[@watchEnabled="true"]/@watchDir' |</OT_CONTENT>
+        <OT_CONTENT>    xmllint --shell "$server_xml" | grep "content=" | awk -F"=" '{print $NF}')</OT_CONTENT>
+        <OT_CONTENT>  if [ -z "$watchDir" ] ;</OT_CONTENT>
+        <OT_CONTENT>  then</OT_CONTENT>
+        <OT_CONTENT>    echo "Server assumes not cluster deployment or watchDir is not specified."</OT_CONTENT>
+        <OT_CONTENT>    undeloy_application</OT_CONTENT>
+        <OT_CONTENT>  else</OT_CONTENT>
+        <OT_CONTENT>    echo "Server is cluster deployment."</OT_CONTENT>
+        <OT_CONTENT>    path="$watchDir/&amp;UC4RB_TC_CONTEXT_NAME#.war"</OT_CONTENT>
+        <OT_CONTENT>!   Check war file exist in watchDir</OT_CONTENT>
+        <OT_CONTENT>    if [ ! -f "$path" ] ;</OT_CONTENT>
+        <OT_CONTENT>    then</OT_CONTENT>
+        <OT_CONTENT>      echo "Application not found in '$watchDir'."</OT_CONTENT>
+        <OT_CONTENT>      undeloy_application</OT_CONTENT>
+        <OT_CONTENT>    else</OT_CONTENT>
+        <OT_CONTENT>!     Remove war file in watchDir</OT_CONTENT>
+        <OT_CONTENT>      echo "Application found in '$watchDir'."</OT_CONTENT>
+        <OT_CONTENT>      rm -f "$path"</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX</OT_CONTENT>
+        <OT_CONTENT>    fi</OT_CONTENT>
+        <OT_CONTENT>  fi</OT_CONTENT>
+        <OT_CONTENT>fi</OT_CONTENT>
+      </OT_Type>
+      <OT_Type value="1">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.PREPARE_JOB</OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <JBA>
+      <row>
+        <JBA_ACTATRUN>1</JBA_ACTATRUN>
+        <JBA_HOSTATTRTYPE>UNIX</JBA_HOSTATTRTYPE>
+        <JBA_HOSTDST>&lt;UNIX&gt;</JBA_HOSTDST>
+        <JBA_OUTPUT>2</JBA_OUTPUT>
+        <JBA_PRIORITY>0</JBA_PRIORITY>
+        <JBA_REST>M=''N=''2=''Y=''</JBA_REST>
+      </row>
+    </JBA>
+    <ORB>
+      <row>
+      </row>
+    </ORB>
+  </JOBS>

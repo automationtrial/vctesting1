@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <VARA>
+    <OH>
+      <row>
+        <OH_IDNR>1008374</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:23:49.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTDATE>2011-11-15 08:03:53.0</OH_LASTDATE>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_JDBC.PUB.VAR.METADATA</OH_NAME>
+        <OH_OTYPE>VARA</OH_OTYPE>
+        <OH_SUBTYPE>STATIC</OH_SUBTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OVD>
+      <row>
+        <OVD_COLCOUNT>5</OVD_COLCOUNT>
+        <OVD_NOTFOUND>I</OVD_NOTFOUND>
+        <OVD_SORTORDER>0</OVD_SORTORDER>
+        <OVD_SOURCE>STATIC</OVD_SOURCE>
+        <OVD_TYPE>C</OVD_TYPE>
+        <OVD_VRNAME>FREI</OVD_VRNAME>
+      </row>
+    </OVD>
+    <OVW>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>5630</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Build Number</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>Database</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Categories</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>Automic Software GmbH</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Company</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>PCK.ITPA_SHARED ~&gt; 1.2</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Dependencies</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>This package contains actions to interact with a database management system via JDBC.</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Description</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>www.automic.com</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Homepage</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>License</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>PCK.AUTOMIC_JDBC</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Name</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>0.2.0</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Package Format Version</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>Automic JDBC Package</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Title</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>1.3.0</OVW_VALUE1>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>Version</OVW_VVALUE>
+      </row>
+    </OVW>
+  </VARA>

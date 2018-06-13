@@ -38,6 +38,36 @@
       </row>
       <row>
         <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>Automic Java Properties</OVW_VALUE1>
+        <OVW_VALUE2>1.1.2</OVW_VALUE2>
+        <OVW_VALUE3>PCK.ITPA_SHARED ~&gt; 1.1</OVW_VALUE3>
+        <OVW_VALUE4>Java Properties, File manipulation</OVW_VALUE4>
+        <OVW_VALUE5>Action Pack</OVW_VALUE5>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>PCK.AUTOMIC_JAVA_PROPERTIES</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>Automic JDBC Package</OVW_VALUE1>
+        <OVW_VALUE2>1.3.0</OVW_VALUE2>
+        <OVW_VALUE3>PCK.ITPA_SHARED ~&gt; 1.2</OVW_VALUE3>
+        <OVW_VALUE4>Database</OVW_VALUE4>
+        <OVW_VALUE5>Action Pack</OVW_VALUE5>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>PCK.AUTOMIC_JDBC</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUE1>Automic Tomcat</OVW_VALUE1>
+        <OVW_VALUE2>1.2.0</OVW_VALUE2>
+        <OVW_VALUE3>PCK.ITPA_SHARED ~&gt; 1.1</OVW_VALUE3>
+        <OVW_VALUE4>Application Server</OVW_VALUE4>
+        <OVW_VALUE5>Action Pack</OVW_VALUE5>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>PCK.AUTOMIC_TOMCAT</OVW_VVALUE>
+      </row>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
         <OVW_VALUE1>ITPA Shared</OVW_VALUE1>
         <OVW_VALUE2>1.2.6</OVW_VALUE2>
         <OVW_VALUE4>Utility</OVW_VALUE4>

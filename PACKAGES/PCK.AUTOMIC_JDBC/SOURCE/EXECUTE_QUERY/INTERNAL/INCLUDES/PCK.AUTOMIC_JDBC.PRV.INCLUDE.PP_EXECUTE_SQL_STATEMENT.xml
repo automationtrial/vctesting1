@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008382</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:23:51.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_JDBC.PRV.INCLUDE.PP_EXECUTE_SQL_STATEMENT</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;variableName# = "PCK.AUTOMIC_JDBC.PRV.PRV.VARA.TEMP.PP_EXECUTE_SQL_STATEMENT_RESULT.&amp;$ACTIVATOR_RUNID#.&amp;$PHYS_DATE_YYYYMMDD#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;variablePath# = ""</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;variableLine# = ""</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;key# = ""</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;NO_RECORD_AFFECTED# = ""</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CREATE_PASS_VALUES_VARIABLE</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;row_count# = 0</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;row_hnd# = PREP_PROCESS_REPORT(,,,"*Affected Rows: *")</OT_CONTENT>
+        <OT_CONTENT>:PROCESS &amp;row_hnd#</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;line# = GET_PROCESS_LINE(&amp;row_hnd#,1)</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;line# = STR_TRIM(&amp;line#)</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;posCount# = STR_FIND(&amp;line#,"Affected Rows: ")</OT_CONTENT>
+        <OT_CONTENT>:  IF &amp;posCount# &gt; 0</OT_CONTENT>
+        <OT_CONTENT>:    D &amp;ARR#, string, 2</OT_CONTENT>
+        <OT_CONTENT>:    FILL &amp;ARR#[] = STR_SPLIT(&amp;line#,"Affected Rows: ")</OT_CONTENT>
+        <OT_CONTENT>:    IF &amp;ARR#[2] &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;row_count# = STR_TRIM(&amp;ARR#[2])</OT_CONTENT>
+        <OT_CONTENT>:      PSET &amp;UC4RB_OUT_COUNT_ROWS# = &amp;row_count#</OT_CONTENT>
+        <OT_CONTENT>:      PRINT "Data rows in Resultset: &amp;row_count#"</OT_CONTENT>
+        <OT_CONTENT>:    ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:    IF &amp;ARR#[2] &lt;&gt; "0"</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;NO_RECORD_AFFECTED# = "FALSE"</OT_CONTENT>
+        <OT_CONTENT>:    ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDPROCESS</OT_CONTENT>
+        <OT_CONTENT>:CLOSE_PROCESS &amp;row_hnd#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;parseMode# = 0</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;lastKey# = ""</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;lastContent# = ""</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;NO_RECORD_AFFECTED# = "FALSE"</OT_CONTENT>
+        <OT_CONTENT>:  IF &amp;ret# &lt;&gt; 0</OT_CONTENT>
+        <OT_CONTENT>:    MODIFY_STATE RETCODE = &amp;ret#</OT_CONTENT>
+        <OT_CONTENT>:  ELSE</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;hnd# = PREP_PROCESS_REPORT(,,,"*")</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;COUNT# = 1</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;oldline# = ""</OT_CONTENT>
+        <OT_CONTENT>:    SET &amp;NL#=UC_CRLF()</OT_CONTENT>
+        <OT_CONTENT>:    PROCESS &amp;hnd#</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;line# = GET_PROCESS_LINE(&amp;hnd#,1)</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;line# = STR_TRIM(&amp;line#)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;posStart# = STR_FIND(&amp;line#,"Processing Resultset ...")</OT_CONTENT>
+        <OT_CONTENT>:      SET &amp;posEnd# = STR_FIND(&amp;line#,"Affected Rows: ")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:      IF &amp;posEnd# &gt; 0</OT_CONTENT>
+        <OT_CONTENT>!         end parsing the report if "Affected Rows: " is found</OT_CONTENT>
+        <OT_CONTENT>!         We have to put the last line to the temporary variable</OT_CONTENT>
+        <OT_CONTENT>:         IF &amp;lastKey# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:           PUT_VAR &amp;variableName#, "&amp;lastKey#", "&amp;lastContent#"</OT_CONTENT>
+        <OT_CONTENT>:         ENDIF</OT_CONTENT>
+        <OT_CONTENT>:         SET &amp;parseMode# = "0"</OT_CONTENT>
+        <OT_CONTENT>:      ELSE</OT_CONTENT>
+        <OT_CONTENT>:        IF &amp;posStart# &gt; 0</OT_CONTENT>
+        <OT_CONTENT>!          start parsing the report if "Processing Resultset ..." is found</OT_CONTENT>
+        <OT_CONTENT>:          SET &amp;parseMode# = "1"</OT_CONTENT>
+        <OT_CONTENT>:        ELSE</OT_CONTENT>
+        <OT_CONTENT>:          IF &amp;parseMode# = "1"</OT_CONTENT>
+        <OT_CONTENT>:            SET &amp;variableLine# = STR_TRIM(&amp;line#)</OT_CONTENT>
+        <OT_CONTENT>:            SET &amp;COUNT# = FORMAT(&amp;COUNT#)</OT_CONTENT>
+        <OT_CONTENT>:            SET &amp;newLineFound# = STR_FIND(&amp;variableLine#, "INFO  - &amp;COUNT#&amp;UC4RB_DB_SQL_SEPARATOR#")</OT_CONTENT>
+        <OT_CONTENT>:            IF &amp;newLineFound# &gt; 0</OT_CONTENT>
+        <OT_CONTENT>!</OT_CONTENT>
+        <OT_CONTENT>!              We found a new line! We have to put the previous lines to the temporary variable.</OT_CONTENT>
+        <OT_CONTENT>!              Then we create a new key.</OT_CONTENT>
+        <OT_CONTENT>!</OT_CONTENT>
+        <OT_CONTENT>!              Do not put it to the Variable in the first run,</OT_CONTENT>
+        <OT_CONTENT>!              as lastKey and lastContent will be empty.</OT_CONTENT>
+        <OT_CONTENT>:              IF &amp;COUNT# &gt; 1</OT_CONTENT>
+        <OT_CONTENT>:                PUT_VAR &amp;variableName#, "&amp;lastKey#", "&amp;lastContent#"</OT_CONTENT>
+        <OT_CONTENT>:              ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;posLineNr# = STR_FIND(&amp;variableLine#, &amp;UC4RB_DB_SQL_SEPARATOR#)</OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;posLineNrLength# = SUB(&amp;posLineNr#, 1)</OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;key# = MID(&amp;variableLine#, 1, &amp;posLineNrLength#)</OT_CONTENT>
+        <OT_CONTENT>:                SET &amp;posLineNrLength# = STR_LENGTH(&amp;UC4RB_DB_SQL_SEPARATOR#)</OT_CONTENT>
+        <OT_CONTENT>:                SET &amp;posLineNr# = ADD(&amp;posLineNr#, &amp;posLineNrLength#)</OT_CONTENT>
+        <OT_CONTENT>:                SET &amp;variableLine# = STR_CUT(&amp;variableLine#, &amp;posLineNr#)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;lastkey# = &amp;key#</OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;lastContent# = &amp;variableLine#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;COUNT# = &amp;COUNT# + 1</OT_CONTENT>
+        <OT_CONTENT>:            ELSE</OT_CONTENT>
+        <OT_CONTENT>!</OT_CONTENT>
+        <OT_CONTENT>!              We did not find a new line.</OT_CONTENT>
+        <OT_CONTENT>!              We are adding the line to the existing content.</OT_CONTENT>
+        <OT_CONTENT>!</OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;lastContent# = STR_CAT(&amp;lastContent#, &amp;NL#)</OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;lastContent# = STR_CAT(&amp;lastContent#, &amp;variableLine#)</OT_CONTENT>
+        <OT_CONTENT>:            ENDIF</OT_CONTENT>
+        <OT_CONTENT>:          ENDIF</OT_CONTENT>
+        <OT_CONTENT>:        ENDIF</OT_CONTENT>
+        <OT_CONTENT>:      ENDIF</OT_CONTENT>
+        <OT_CONTENT>:    ENDPROCESS</OT_CONTENT>
+        <OT_CONTENT>:    CLOSE_PROCESS &amp;hnd#</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>:PSET &amp;UC4RB_OUT_SQL_QUERY# = "&amp;variableName#"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

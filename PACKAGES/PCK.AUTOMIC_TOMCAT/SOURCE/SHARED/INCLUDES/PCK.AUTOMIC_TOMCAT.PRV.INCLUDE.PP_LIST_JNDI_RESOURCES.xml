@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008474</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:04.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.PP_LIST_JNDI_RESOURCES</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;variableName# = "PCK.AUTOMIC_TOMCAT.PRV.VARA.TEMP.PP_LIST_JNDI_RESOURCES_RESULT.&amp;$ACTIVATOR_RUNID#.&amp;$PHYS_DATE_YYYYMMDD#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;variablePath# = ""</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_RES_TYPE# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;LIST_DS_STATEMENT# = "OK - Listed global resources of type "</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>:  SET &amp;LIST_DS_STATEMENT# = "OK - Listed global resources of all types"</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;hnd# = PREP_PROCESS_REPORT(,,,"*")</OT_CONTENT>
+        <OT_CONTENT>:PROCESS &amp;hnd#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;line# = GET_PROCESS_LINE(&amp;hnd#,1)</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;line# = STR_TRIM(&amp;line#)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;is_ok# = STR_FIND(&amp;line#, &amp;LIST_DS_STATEMENT#)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:   IF &amp;is_ok# &lt;&gt; 0</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CREATE_PASS_VALUES_VARIABLE</OT_CONTENT>
+        <OT_CONTENT>:     IF &amp;ret# &lt;&gt; 0</OT_CONTENT>
+        <OT_CONTENT>:       MODIFY_STATE RETCODE = &amp;ret#</OT_CONTENT>
+        <OT_CONTENT>:       PRINT "Unable to create new variable object: UC4_RB_OUT_APPLICATIONS_&amp;$ACTIVATOR_RUNID#"</OT_CONTENT>
+        <OT_CONTENT>:       TERM_PROCESS &amp;hnd#</OT_CONTENT>
+        <OT_CONTENT>:     ELSE</OT_CONTENT>
+        <OT_CONTENT>:       DEFINE &amp;list_ds#, string, 100</OT_CONTENT>
+        <OT_CONTENT>:       FILL &amp;list_ds#[] = STR_SPLIT(&amp;line#,"-----")</OT_CONTENT>
+        <OT_CONTENT>:       SET &amp;ds_count# = 2</OT_CONTENT>
+        <OT_CONTENT>:       DEFINE &amp;ds_info#, string, 2</OT_CONTENT>
+        <OT_CONTENT>:       WHILE &amp;list_ds#[&amp;ds_count#] &gt; ""</OT_CONTENT>
+        <OT_CONTENT>:         FILL &amp;ds_info#[] = STR_SPLIT(&amp;list_ds#[&amp;ds_count#],":")</OT_CONTENT>
+        <OT_CONTENT>:         SET &amp;ds_name# = &amp;ds_info#[1]</OT_CONTENT>
+        <OT_CONTENT>:         IF STR_FIND(&amp;ds_name#,"FAIL - ") = 1</OT_CONTENT>
+        <OT_CONTENT>:           MODIFY_STATE RETCODE = 2</OT_CONTENT>
+        <OT_CONTENT>:           SET &amp;remove# = REMOVE_OBJECT("&amp;variableName#")</OT_CONTENT>
+        <OT_CONTENT>:           PRINT &amp;ds_name#</OT_CONTENT>
+        <OT_CONTENT>:           TERM_PROCESS &amp;hnd#</OT_CONTENT>
+        <OT_CONTENT>:         ELSE</OT_CONTENT>
+        <OT_CONTENT>:           SET &amp;ds_type# = &amp;ds_info#[2]</OT_CONTENT>
+        <OT_CONTENT>:           PRINT "&amp;ds_name#: &amp;ds_type#"</OT_CONTENT>
+        <OT_CONTENT>:           PUT_VAR &amp;variableName#, "&amp;ds_name#", "&amp;ds_type#"</OT_CONTENT>
+        <OT_CONTENT>:         ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:         SET &amp;ds_count# = &amp;ds_count# + 1</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:       ENDWHILE</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:     ENDIF</OT_CONTENT>
+        <OT_CONTENT>:   ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:ENDPROCESS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:PSET &amp;UC4RB_OUT_TC_LIST_RESRC# = "&amp;variableName#"</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

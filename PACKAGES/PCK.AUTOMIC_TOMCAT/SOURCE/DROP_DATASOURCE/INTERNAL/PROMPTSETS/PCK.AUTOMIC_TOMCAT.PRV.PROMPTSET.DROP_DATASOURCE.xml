@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <PRPT>
+    <OH>
+      <row>
+        <OH_IDNR>1008452</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:24:54.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.PROMPTSET.DROP_DATASOURCE</OH_NAME>
+        <OH_OTYPE>PRPT</OH_OTYPE>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OPSA>
+      <row>
+        <OPSA_XUI>&lt;dialog height="506" icon="PRPT" id="PRPTS" left="279" top="4" width="420"&gt;&lt;readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Parameters"&gt;&lt;properties&gt;&lt;entry name="text"&gt;Parameters&lt;/entry&gt;&lt;entry name="modifiable"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/readpanel&gt;&lt;/dialog&gt;</OPSA_XUI>
+      </row>
+    </OPSA>
+    <OPSE>
+      <row>
+        <OPSE_LNR>2</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_NAME#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_NAMEs.00" inputassistance="0" len="" nl="1" regex="" separator=";" showaspassword="0" text="Datasource name" tooltip="Name of the datasource to drop." upper="0" required="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Datasource name&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_NAMEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Name of the datasource to drop.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>1</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_HOME_DIR#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_HOME_DIRs.00" inputassistance="0" len="" nl="1" regex="" separator=";" showaspassword="0" text="Home" tooltip="Path to the Tomcat home directory on the executing machine. Eg: C:\Program Files\Apache Software Foundations\Tomcat7\" upper="0" required="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Home&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_HOME_DIRs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Path to the Tomcat home directory on the executing machine. Eg: C:\Program Files\Apache Software Foundations\Tomcat7\&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>6</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_JAVA_OPTIONS#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_JAVA_OPTIONSs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Java Runtime options" tooltip="Only used, if script-mode is used and not empty. Include any additional Java runtime options to use when starting up Tomcat. E.g. -DXmx800m for heap size etc. (Uses JAVA_OPTS parameter of the startup script)" upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Java Runtime options&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_JAVA_OPTIONSs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Only used, if script-mode is used and not empty. Include any additional Java runtime options to use when starting up Tomcat. E.g. -DXmx800m for heap size etc. (Uses JAVA_OPTS parameter of the startup script)&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>3</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_RES_LINKS#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>YES</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_RES_LINKSs.00" nl="1" quotes="" text="Remove resourcelink from context.xml" tooltip="Removes the resourcelinks (if any) from the global conf/context.xml file. Application-level context.xml file are not touched." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Remove resourcelink from context.xml&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_RES_LINKSs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Removes the resourcelinks (if any) from the global conf/context.xml file. Application-level context.xml file are not touched.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>5</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_RESTART_MODE#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.AUTOMIC_TOMCAT.PRV.VARA.SCRIPT_SERVICE</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_RESTART_MODEs.00" nl="1" quotes="" text="Restart mode" tooltip="Defines if Tomcat should be started using scripts or as service." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.AUTOMIC_TOMCAT.PRV.VARA.SCRIPT_SERVICE&lt;/entry&gt;&lt;entry name="text"&gt;Restart mode&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_RESTART_MODEs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Defines if Tomcat should be started using scripts or as service.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>4</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_RESTART_TOMCAT#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_RESTART_TOMCATs.00" nl="1" quotes="" text="Restart Tomcat" tooltip="As the datasource is put into the server.xml file, the Tomcat should normally be restarted in order that changes become effective." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Restart Tomcat&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_RESTART_TOMCATs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;As the datasource is put into the server.xml file, the Tomcat should normally be restarted in order that changes become effective.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>7</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_SERVICE_NAME#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_SERVICE_NAMEs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Service name" tooltip="Only used, if service-mode method is used. For Windows: name of the service. For Unix: script in your inet.d folder to call (e.g.: /etc/inet.d/tomcat5)" upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Service name&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_SERVICE_NAMEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Only used, if service-mode method is used. For Windows: name of the service. For Unix: script in your inet.d folder to call (e.g.: /etc/inet.d/tomcat5)&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+    </OPSE>
+  </PRPT>

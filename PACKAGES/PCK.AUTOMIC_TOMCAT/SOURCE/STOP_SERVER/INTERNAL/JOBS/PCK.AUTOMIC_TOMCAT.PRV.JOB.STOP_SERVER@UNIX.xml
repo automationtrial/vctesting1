@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBS>
+    <OH>
+      <row>
+        <OH_IDNR>1008521</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>F</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:25.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_DEACTWHEN>ANY_OK</OH_DEACTWHEN>
+        <OH_HOSTATTRTYPEDST>UNIX</OH_HOSTATTRTYPEDST>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.JOB.STOP_SERVER@UNIX</OH_NAME>
+        <OH_OTYPE>JOBS</OH_OTYPE>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_CONVERTED_STRING# = &amp;UC4RB_TC_HOME_DIR#</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CONVERT_SLASHES_UNIX_STYLE</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_HOME_DIR# = &amp;UC4RB_CONVERTED_STRING#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_HOME_DIR_STRING# = &amp;UC4RB_TC_HOME_DIR#</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_HOME_DIR_STRING# = STR_SUBSTITUTE(&amp;UC4RB_TC_HOME_DIR_STRING#, "/", "\/")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>FailIfNotRunning() {</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_FAIL_IF_NOT_RUNNING# = "YES"</OT_CONTENT>
+        <OT_CONTENT>   exit 1</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>   exit 0</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>IsTomcatRunning() {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  is_tomcat_running=0</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UNIX#= GET_VAR('UC_HOST_SW', &amp;AGENT#)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UNIX# = "HP-UX"</OT_CONTENT>
+        <OT_CONTENT>  tomcat_command=`ps -efx | grep "catalina\.home=&amp;UC4RB_TC_HOME_DIR_STRING#.* org\.apache\.catalina\.startup\.Bootstrap start"`</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UNIX# = "SunOS"</OT_CONTENT>
+        <OT_CONTENT>  pid_list=`ps -ef | awk '{print $2}'`</OT_CONTENT>
+        <OT_CONTENT>  tomcat_command=`for i in $pid_list ; do</OT_CONTENT>
+        <OT_CONTENT>                     pargs -l $i 2&gt;/dev/null | grep "catalina\.home=&amp;UC4RB_TC_HOME_DIR_STRING#.* org\.apache\.catalina\.startup\.Bootstrap start"</OT_CONTENT>
+        <OT_CONTENT>                  done`</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UNIX# = "AIX" OR "Linux"</OT_CONTENT>
+        <OT_CONTENT>  tomcat_command=`ps -ef | grep "catalina\.home=&amp;UC4RB_TC_HOME_DIR_STRING#.* org\.apache\.catalina\.startup\.Bootstrap start"`</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  if [ -n "$tomcat_command" ]; then</OT_CONTENT>
+        <OT_CONTENT>    is_tomcat_running=1</OT_CONTENT>
+        <OT_CONTENT>  fi</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  echo $is_tomcat_running</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!-------------------------------------------------------</OT_CONTENT>
+        <OT_CONTENT>ShutdownTomcat() {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_STOP_MODE# = "SCRIPT"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  cd "&amp;UC4RB_TC_HOME_DIR#/bin"</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX</OT_CONTENT>
+        <OT_CONTENT>!  chmod +x catalina.sh</OT_CONTENT>
+        <OT_CONTENT>  sh catalina.sh stop</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  if [ -e "&amp;UC4RB_TC_SERVICE_NAME#" ]; then</OT_CONTENT>
+        <OT_CONTENT>    "&amp;UC4RB_TC_SERVICE_NAME#" stop</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_SHELL_CMD@UNIX</OT_CONTENT>
+        <OT_CONTENT>  else</OT_CONTENT>
+        <OT_CONTENT>    echo "There is no service &amp;UC4RB_TC_SERVICE_NAME#"</OT_CONTENT>
+        <OT_CONTENT>    exit 2</OT_CONTENT>
+        <OT_CONTENT>  fi</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!-------------------------------------------------------</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>is_tomcat_running=`IsTomcatRunning`</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if [ $is_tomcat_running -gt 0 ]; then</OT_CONTENT>
+        <OT_CONTENT>  echo "Tomcat is running. Stopping ..."</OT_CONTENT>
+        <OT_CONTENT>  ShutdownTomcat</OT_CONTENT>
+        <OT_CONTENT>else</OT_CONTENT>
+        <OT_CONTENT>  echo "Tomcat is not running. Exiting ..."</OT_CONTENT>
+        <OT_CONTENT>  FailIfNotRunning</OT_CONTENT>
+        <OT_CONTENT>fi</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!Check if Tomcat is stopped</OT_CONTENT>
+        <OT_CONTENT>sleep 5</OT_CONTENT>
+        <OT_CONTENT>echo "Check if Tomcat is stopped..."</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>is_tomcat_running=`IsTomcatRunning`</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if [ $is_tomcat_running -eq 0 ]; then</OT_CONTENT>
+        <OT_CONTENT>  echo "Tomcat has been stopped. "</OT_CONTENT>
+        <OT_CONTENT>  exit 0</OT_CONTENT>
+        <OT_CONTENT>else</OT_CONTENT>
+        <OT_CONTENT>  echo "Stop Tomcat failed"</OT_CONTENT>
+        <OT_CONTENT>  exit 2</OT_CONTENT>
+        <OT_CONTENT>fi</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+      </OT_Type>
+      <OT_Type value="1">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.PREPARE_JOB</OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <JBA>
+      <row>
+        <JBA_ACTATRUN>1</JBA_ACTATRUN>
+        <JBA_HOSTATTRTYPE>UNIX</JBA_HOSTATTRTYPE>
+        <JBA_HOSTDST>&lt;UNIX&gt;</JBA_HOSTDST>
+        <JBA_OUTPUT>2</JBA_OUTPUT>
+        <JBA_PRIORITY>0</JBA_PRIORITY>
+        <JBA_REST>M=''N=''2=''Y=''</JBA_REST>
+      </row>
+    </JBA>
+    <ORB>
+      <row>
+      </row>
+    </ORB>
+  </JOBS>

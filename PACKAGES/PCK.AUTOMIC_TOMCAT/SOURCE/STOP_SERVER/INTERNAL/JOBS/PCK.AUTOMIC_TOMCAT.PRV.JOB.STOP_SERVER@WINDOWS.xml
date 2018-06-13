@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBS>
+    <OH>
+      <row>
+        <OH_IDNR>1008520</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>F</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:24.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_DEACTWHEN>ANY_OK</OH_DEACTWHEN>
+        <OH_HOSTATTRTYPEDST>WINDOWS</OH_HOSTATTRTYPEDST>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.JOB.STOP_SERVER@WINDOWS</OH_NAME>
+        <OH_OTYPE>JOBS</OH_OTYPE>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <Docu type="0">
+<![CDATA[Stops Tomcat using the shutdown script provided by Tomcat or starting a preconfigured Windows service/Unix deamon. Stops server only on a target host, other cluster nodes are not stopped.]]>      </Docu>
+    </ODOC>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PUB.INCLUDE.POWERSHELL_UTILITY</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.GET_NETWORK_STATISTICS@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>:WAIT 2</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_CONVERTED_STRING# = &amp;UC4RB_TC_HOME_DIR#</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CONVERT_SLASHES_WINDOWS_STYLE</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_HOME_DIR# = &amp;UC4RB_CONVERTED_STRING#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!-------------------------------------------------------</OT_CONTENT>
+        <OT_CONTENT>function FailIfNotRunning {</OT_CONTENT>
+        <OT_CONTENT>:  IF  &amp;UC4RB_TC_FAIL_IF_NOT_RUNNING# = "YES"</OT_CONTENT>
+        <OT_CONTENT>                  exit 1;</OT_CONTENT>
+        <OT_CONTENT>:  ELSE</OT_CONTENT>
+        <OT_CONTENT>                  exit 0;</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!-------------------------------------------------------</OT_CONTENT>
+        <OT_CONTENT>function ShutdownTomcat {</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_STOP_MODE# = "SCRIPT"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  cd "&amp;UC4RB_TC_HOME_DIR#\bin"</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  Write-Host "Stopping Tomcat using catalina.bat..."</OT_CONTENT>
+        <OT_CONTENT>  .\catalina.bat stop</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>  Return</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>  Write-Host "Stopping Tomcat service... "</OT_CONTENT>
+        <OT_CONTENT>  Stop-Service "&amp;UC4RB_TC_SERVICE_NAME#"</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>  Return</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!-------------------------------------------------------</OT_CONTENT>
+        <OT_CONTENT>function IsTomcatRunning($pid_list) {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  $is_tomcat_running = 0</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  $catalina_home = "&amp;UC4RB_TC_HOME_DIR#";</OT_CONTENT>
+        <OT_CONTENT>  $catalina_home = $catalina_home.Replace("\", "\\");</OT_CONTENT>
+        <OT_CONTENT>  $pid_list | foreach {</OT_CONTENT>
+        <OT_CONTENT>!   Find out which process is running to $port. Important: the process name of a tomcat instance running by script is "java.exe"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>    $tomcat_command =(Get-WmiObject win32_process -Filter "ProcessId=$_" | select commandline).commandline</OT_CONTENT>
+        <OT_CONTENT>!   The process might not belong to wmi win32_process class (I have not seen any yet). In that case the command will return an error, the job continues and $tomcat_command=""</OT_CONTENT>
+        <OT_CONTENT>    if($tomcat_command){</OT_CONTENT>
+        <OT_CONTENT>      Write-Host "The process with Id $_ is:`n $tomcat_command"</OT_CONTENT>
+        <OT_CONTENT>    }else {</OT_CONTENT>
+        <OT_CONTENT>      Write-Host "There is no process with Id $_"</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_STOP_MODE# = "SCRIPT"</OT_CONTENT>
+        <OT_CONTENT>    if($tomcat_command -match "catalina.home=""$catalina_home""" -and $tomcat_command -match "org.apache.catalina.startup.Bootstrap  start"  ) {</OT_CONTENT>
+        <OT_CONTENT>!     Make sure the process running is from Tomcat with the same home directory</OT_CONTENT>
+        <OT_CONTENT>      $is_tomcat_running = 1</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>    if($tomcat_command -match "&amp;UC4RB_TC_SERVICE_NAME#"  ) {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>      $tomcat_status = (Get-Service|Where-Object {$_.Name -eq "&amp;UC4RB_TC_SERVICE_NAME#"}).Status</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>      if( !$tomcat_status ){</OT_CONTENT>
+        <OT_CONTENT>        Write-Host "There is no service &amp;UC4RB_TC_SERVICE_NAME# installed"</OT_CONTENT>
+        <OT_CONTENT>      }elseif( $tomcat_status -eq "Running") {</OT_CONTENT>
+        <OT_CONTENT>        $is_tomcat_running = 1</OT_CONTENT>
+        <OT_CONTENT>      }else {</OT_CONTENT>
+        <OT_CONTENT>        Write-Host "Service &amp;UC4RB_TC_SERVICE_NAME# is not running!"</OT_CONTENT>
+        <OT_CONTENT>      }</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! End of foreach. Finish checking if tomcat is running on each port</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>  return $is_tomcat_running</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT>!-------------------------------------------------------</OT_CONTENT>
+        <OT_CONTENT>function GetPidFromPort($port_list) {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  $pid_list = @()</OT_CONTENT>
+        <OT_CONTENT>! Find the pid associate with each port</OT_CONTENT>
+        <OT_CONTENT>  $port_list | foreach {</OT_CONTENT>
+        <OT_CONTENT>    $port = $_</OT_CONTENT>
+        <OT_CONTENT>! 2 services can listen on the same port (special case). Check the link for more detail:</OT_CONTENT>
+        <OT_CONTENT>! http://stackoverflow.com/questions/2067830/how-can-a-wcf-service-listen-the-same-port-as-iis?lq=1</OT_CONTENT>
+        <OT_CONTENT>    (Get-NetworkStatistics) | Where-Object {$_.State -eq "LISTENING" -and $_.LocalPort -eq $port}|ForEach-Object {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!       Process Id of the process associated with $port</OT_CONTENT>
+        <OT_CONTENT>        $process_id = ($_).PID</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>        if($process_id){</OT_CONTENT>
+        <OT_CONTENT>          Write-Host "Process $process_id is running on port $port"</OT_CONTENT>
+        <OT_CONTENT>          $pid_list += $process_id</OT_CONTENT>
+        <OT_CONTENT>        }</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>! Several ports may belong to 1 or several processes -&gt; the array $pid_list may be duplicated(Tomcat HTTP(8080) and HTTPS(8443)) or not (Tomcat(8080) and JBoss(8443) )</OT_CONTENT>
+        <OT_CONTENT>  $pid_list = $pid_list | select -uniq</OT_CONTENT>
+        <OT_CONTENT>  Return $pid_list</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!-------------------------------------------------------</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>function GetPortTomcat {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Get Tomcat HTTP or HTTPS port number</OT_CONTENT>
+        <OT_CONTENT>  $port_list = @()</OT_CONTENT>
+        <OT_CONTENT>  (Select-Xml -path "&amp;UC4RB_TC_HOME_DIR#\conf\server.xml" -xpath "/Server/Service/Connector[@protocol='HTTP/1.1' or count(@protocol)=0]/@port") | foreach {</OT_CONTENT>
+        <OT_CONTENT>    $port = $_.Node."#text"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!   Check if tomcat port exists in server.xml and is a number</OT_CONTENT>
+        <OT_CONTENT>    $is_port_number = [regex]::matches("$port", "^[0-9]*$")|%({$_.Success})</OT_CONTENT>
+        <OT_CONTENT>    if( "$is_port_number" -eq "True" ){</OT_CONTENT>
+        <OT_CONTENT>      $port_list += $port</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  Return $port_list</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!----------------- The action starts here ---------------------</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>$pid_list = @()</OT_CONTENT>
+        <OT_CONTENT>$port_list = @()</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Get tomcat ports from \conf\server.xml. There can be 1 or more</OT_CONTENT>
+        <OT_CONTENT>$port_list = GetPortTomcat</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if(!$port_list ){</OT_CONTENT>
+        <OT_CONTENT>  Write-Host "Can not get port information from server.xml"</OT_CONTENT>
+        <OT_CONTENT>  exit 2</OT_CONTENT>
+        <OT_CONTENT>}else {</OT_CONTENT>
+        <OT_CONTENT>  Write-Host "The port number of Tomcat is $port_list"</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Get process id of the process running on tomcat ports</OT_CONTENT>
+        <OT_CONTENT>$pid_list = GetPidFromPort($port_list)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if(!$pid_list ){</OT_CONTENT>
+        <OT_CONTENT>  Write-Host "Tomcat is not running!"</OT_CONTENT>
+        <OT_CONTENT>  FailIfNotRunning</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check if tomcat is the process (service) running with the pids</OT_CONTENT>
+        <OT_CONTENT>$is_tomcat_running = IsTomcatRunning($pid_list)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if($is_tomcat_running){</OT_CONTENT>
+        <OT_CONTENT>  ShutdownTomcat</OT_CONTENT>
+        <OT_CONTENT>}else {</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_STOP_MODE# = "SCRIPT"</OT_CONTENT>
+        <OT_CONTENT>  Write-Host "Tomcat is not running as script!"</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>  Write-Host "Tomcat is not running as service: &amp;UC4RB_TC_SERVICE_NAME#!"</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT>  FailIfNotRunning</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>! Check if Tomcat is stopped</OT_CONTENT>
+        <OT_CONTENT>Start-Sleep -s 5</OT_CONTENT>
+        <OT_CONTENT>Write-Host "Check if Tomcat is stopped..."</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>$is_tomcat_running = 0</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>$is_tomcat_running = IsTomcatRunning($pid_list)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if (!$is_tomcat_running) {</OT_CONTENT>
+        <OT_CONTENT>  Write-Host "Tomcat has been stopped!"</OT_CONTENT>
+        <OT_CONTENT>  exit 0</OT_CONTENT>
+        <OT_CONTENT>} else {</OT_CONTENT>
+        <OT_CONTENT>  Write-Host "Stop Tomcat failed!"</OT_CONTENT>
+        <OT_CONTENT>  exit 2</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+      </OT_Type>
+      <OT_Type value="1">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.PREPARE_JOB</OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <JBA>
+      <row>
+        <JBA_ACTATRUN>1</JBA_ACTATRUN>
+        <JBA_HOSTATTRTYPE>WINDOWS</JBA_HOSTATTRTYPE>
+        <JBA_HOSTDST>&lt;WIN&gt;</JBA_HOSTDST>
+        <JBA_OUTPUT>2</JBA_OUTPUT>
+        <JBA_REST>1='c:\'2='2'3='0'G='0'H='0'L='0'r='1'5=''</JBA_REST>
+      </row>
+    </JBA>
+    <ORB>
+      <row>
+      </row>
+    </ORB>
+  </JOBS>

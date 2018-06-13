@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBP>
+    <OH>
+      <row>
+        <OH_IDNR>1008524</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>F</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CHILDQUEUE>*OWN</OH_CHILDQUEUE>
+        <OH_CRDATE>2018-06-12 14:25:26.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_DEACTWHEN>ANY_OK</OH_DEACTWHEN>
+        <OH_JPP_COUNT>4</OH_JPP_COUNT>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PUB.ACTION.UNDEPLOY_APPLICATION</OH_NAME>
+        <OH_OPU_FLAG>1</OH_OPU_FLAG>
+        <OH_OTYPE>JOBP</OH_OTYPE>
+        <OH_OV_FLAG>1</OH_OV_FLAG>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_ROLLBACKFLAG>1</OH_ROLLBACKFLAG>
+        <OH_TITLE>Tomcat Undeploy Application</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <Docu type="0">
+<![CDATA[Undeploys an application from a Tomcat server or cluster
+
+Signals an existing application to gracefully shut itself down, and remove it from Tomcat (which also makes this context path available for reuse later). In addition, the document root directory is removed, if it exists in the appBase directory (typically "webapps") for this virtual host.
+
+The action finds out if the application was deployed previously on a single Tomcat server or into a cluster environment using the Tomcat farm deployment mechanism. In both cases the appropriate undeploy steps are executed.
+
+Warning: This command will delete any web application artifacts that exist within appBase directory (typically "webapps") for this virtual host. This will delete the the application .WAR, if present, the application directory resulting either from a deploy in unpacked form or from .WAR expansion as well as the XML Context definition from $CATALINA_BASE/conf/[enginename]/[hostname]/ directory. If you simply want to take an application out of service, you should use the 'Stop Application' command instead.]]>      </Docu>
+    </ODOC>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.SET_BACKUP_DIRECTORY</OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <OV>
+      <row>
+        <OV_VNAME>&amp;UC4RB_BACKUP_DIRECTORY#</OV_VNAME>
+      </row>
+      <row>
+        <OV_VNAME>&amp;UC4RB_BACKUP_REPORT#</OV_VNAME>
+      </row>
+    </OV>
+    <JPA>
+      <row>
+        <JPA_ACTATRUN>1</JPA_ACTATRUN>
+        <JPA_REUSEHOSTGROUP>1</JPA_REUSEHOSTGROUP>
+      </row>
+    </JPA>
+    <JPP>
+      <row>
+        <JPP_ACTIVE>1</JPP_ACTIVE>
+        <JPP_CHILDFLAGS>0000000000000000</JPP_CHILDFLAGS>
+        <JPP_COL>1</JPP_COL>
+        <JPP_LNR>1</JPP_LNR>
+        <JPP_MRTTIME>000000</JPP_MRTTIME>
+        <JPP_OBJECT>START</JPP_OBJECT>
+        <JPP_OTYPE>&lt;START&gt;</JPP_OTYPE>
+        <JPP_ROW>2</JPP_ROW>
+        <JPP_WELSE>S</JPP_WELSE>
+      </row>
+      <row>
+        <JPP_ACTIVE>1</JPP_ACTIVE>
+        <JPP_CHILDFLAGS>0000000000000000</JPP_CHILDFLAGS>
+        <JPP_COL>2</JPP_COL>
+        <JPP_LNR>2</JPP_LNR>
+        <JPP_MRTTIME>000000</JPP_MRTTIME>
+        <JPP_OBJECT>PCK.AUTOMIC_TOMCAT.PRV.JOB.UNDEPLOY_APPLICATION@WINDOWS</JPP_OBJECT>
+        <JPP_OTYPE>JOBS</JPP_OTYPE>
+        <JPP_PRECNT>1</JPP_PRECNT>
+        <JPP_ROLLBACKFLAG>1</JPP_ROLLBACKFLAG>
+        <JPP_ROW>1</JPP_ROW>
+        <JPP_WELSE>A</JPP_WELSE>
+      </row>
+      <row>
+        <JPP_ACTIVE>1</JPP_ACTIVE>
+        <JPP_CHILDFLAGS>0000000000000000</JPP_CHILDFLAGS>
+        <JPP_COL>2</JPP_COL>
+        <JPP_LNR>3</JPP_LNR>
+        <JPP_MRTTIME>000000</JPP_MRTTIME>
+        <JPP_OBJECT>PCK.AUTOMIC_TOMCAT.PRV.JOB.UNDEPLOY_APPLICATION@UNIX</JPP_OBJECT>
+        <JPP_OTYPE>JOBS</JPP_OTYPE>
+        <JPP_PRECNT>1</JPP_PRECNT>
+        <JPP_ROLLBACKFLAG>1</JPP_ROLLBACKFLAG>
+        <JPP_ROW>3</JPP_ROW>
+        <JPP_WELSE>A</JPP_WELSE>
+      </row>
+      <row>
+        <JPP_ACTIVE>1</JPP_ACTIVE>
+        <JPP_CHILDFLAGS>0000000000000000</JPP_CHILDFLAGS>
+        <JPP_COL>3</JPP_COL>
+        <JPP_LNR>4</JPP_LNR>
+        <JPP_MRTTIME>000000</JPP_MRTTIME>
+        <JPP_OBJECT>END</JPP_OBJECT>
+        <JPP_OTYPE>&lt;END&gt;</JPP_OTYPE>
+        <JPP_PRECNT>2</JPP_PRECNT>
+        <JPP_ROW>2</JPP_ROW>
+        <JPP_WELSE>A</JPP_WELSE>
+      </row>
+    </JPP>
+    <JPPA>
+      <row>
+        <JPPA_JPP_LNR>2</JPPA_JPP_LNR>
+        <JPPA_LNR>1</JPPA_LNR>
+        <JPPA_PRELNR>1</JPPA_PRELNR>
+        <JPPA_WHEN>ANY_OK</JPPA_WHEN>
+      </row>
+      <row>
+        <JPPA_JPP_LNR>3</JPPA_JPP_LNR>
+        <JPPA_LNR>1</JPPA_LNR>
+        <JPPA_PRELNR>1</JPPA_PRELNR>
+        <JPPA_WHEN>ANY_OK</JPPA_WHEN>
+      </row>
+      <row>
+        <JPPA_JPP_LNR>4</JPPA_JPP_LNR>
+        <JPPA_LNR>1</JPPA_LNR>
+        <JPPA_PRELNR>2</JPPA_PRELNR>
+        <JPPA_WHEN>ANY_OK</JPPA_WHEN>
+      </row>
+      <row>
+        <JPPA_JPP_LNR>4</JPPA_JPP_LNR>
+        <JPPA_LNR>2</JPPA_LNR>
+        <JPPA_PRELNR>3</JPPA_PRELNR>
+        <JPPA_WHEN>ANY_OK</JPPA_WHEN>
+      </row>
+    </JPPA>
+    <OPU>
+      <row>
+        <OPU_LNR>1</OPU_LNR>
+        <OPU_NAME>PCK.AUTOMIC_TOMCAT.PRV.PROMPTSET.UNDEPLOY_APPLICATION</OPU_NAME>
+        <OPU_ORDER>1</OPU_ORDER>
+      </row>
+      <row>
+        <OPU_LNR>2</OPU_LNR>
+        <OPU_NAME>PCK.ITPA_SHARED.PRV.PROMPTSET.OVERWRITE_AGENT</OPU_NAME>
+        <OPU_ORDER>2</OPU_ORDER>
+      </row>
+    </OPU>
+    <ORB>
+      <row>
+        <ORB_CBACKUPOBJ>PCK.AUTOMIC_TOMCAT.PRV.ACTION.BACKUP_APPLICATION</ORB_CBACKUPOBJ>
+        <ORB_CROLLBACKOBJ>PCK.AUTOMIC_TOMCAT.PRV.ACTION.RB_UNDEPLOY_APPLICATION</ORB_CROLLBACKOBJ>
+      </row>
+    </ORB>
+  </JOBP>

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <PRPT>
+    <OH>
+      <row>
+        <OH_IDNR>1008437</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:24:46.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.PROMPTSET.CREATE_DATASOURCE</OH_NAME>
+        <OH_OTYPE>PRPT</OH_OTYPE>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OPSA>
+      <row>
+        <OPSA_XUI>&lt;dialog height="506" icon="PRPT" id="PRPTS" left="279" top="4" width="420"&gt;&lt;readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Parameters"&gt;&lt;properties&gt;&lt;entry name="text"&gt;Parameters&lt;/entry&gt;&lt;entry name="modifiable"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/readpanel&gt;&lt;/dialog&gt;</OPSA_XUI>
+      </row>
+    </OPSA>
+    <OPSE>
+      <row>
+        <OPSE_LNR>33</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_ACCESS_TO_UNDRL_CONN#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_ACCESS_TO_UNDRL_CONNs.00" nl="1" quotes="" text="Access to underlying connection allowed" tooltip="Accessing of underlying connection is allowed." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Access to underlying connection allowed&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_ACCESS_TO_UNDRL_CONNs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Accessing of underlying connection is allowed.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>29</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_CONN_INIT_SQLS#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_CONN_INIT_SQLSs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Connection init SQLs" tooltip="A list of SQL statements run once after a Connection is created. Separate multiple statements by semicolons (;)." upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Connection init SQLs&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_CONN_INIT_SQLSs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;A list of SQL statements run once after a Connection is created. Separate multiple statements by semicolons (;).&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>32</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_CONN_PROPS#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_CONN_PROPSs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Connection properties" tooltip="A list of driver specific properties passed to the driver for creating connections. Each property is given as name=value, multiple properties are separated by semicolons (;). Default: no properties" upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Connection properties&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_CONN_PROPSs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;A list of driver specific properties passed to the driver for creating connections. Each property is given as name=value, multiple properties are separated by semicolons (;). Default: no properties&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>25</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DEFAULT_AUTO_COMMIT#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>YES</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_DEFAULT_AUTO_COMMITs.00" nl="1" quotes="" text="Default auto commit" tooltip="default auto-commit state of the connections created by this pool." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Default auto commit&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DEFAULT_AUTO_COMMITs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;default auto-commit state of the connections created by this pool.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>31</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DEFAULT_CATALOG#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DEFAULT_CATALOGs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Default catalog" tooltip="The name of the default catalog." upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Default catalog&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DEFAULT_CATALOGs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The name of the default catalog.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>26</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DEFAULT_READ_ONLY#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_DEFAULT_READ_ONLYs.00" nl="1" quotes="" text="Default read only" tooltip="default read-only state of the connections created by this pool." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Default read only&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DEFAULT_READ_ONLYs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;default read-only state of the connections created by this pool.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>27</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DEFAULT_TRANSACT_ISOL#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.AUTOMIC_TOMCAT.PRV.VARA.DEFAULT_TRANSACT_ISOL</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO DEFAULT</OPSE_VALUE>
+        <OPSE_XUI>&lt;combo dynamic="0" enabled="1" fill="b" focus="0" id="UC4RB_TC_DEFAULT_TRANSACT_ISOLs.00" nl="1" quotes="" text="Default transaction isolation" tooltip="This sets the default transaction isolation level." alt="1" filter="0" strict="1" vtype="i"&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.AUTOMIC_TOMCAT.PRV.VARA.DEFAULT_TRANSACT_ISOL&lt;/entry&gt;&lt;entry name="text"&gt;Default transaction isolation&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DEFAULT_TRANSACT_ISOLs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;This sets the default transaction isolation level.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="dynamic"&gt;0&lt;/entry&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/combo&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>combo</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>4</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DRIVER#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DRIVERs.00" inputassistance="0" len="" nl="1" regex="" separator=";" showaspassword="0" text="Driver name" tooltip="Fully qualified Java class name of the JDBC driver to be used." upper="0" required="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Driver name&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DRIVERs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Fully qualified Java class name of the JDBC driver to be used.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>12</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_INITIAL_SIZE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_INITIAL_SIZEs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Initial size" tooltip="The initial number of connections that will be created in the pool during pool initialization." upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Initial size&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_INITIAL_SIZEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The initial number of connections that will be created in the pool during pool initialization.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>13</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_MAX_ACTIVE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_MAX_ACTIVEs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Max active" tooltip="The maximum number of connections that can be allocated from this pool at the same time." upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Max active&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_MAX_ACTIVEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The maximum number of connections that can be allocated from this pool at the same time.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>15</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_MAX_IDLE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_MAX_IDLEs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Max idle" tooltip="The maximum number of connections that can sit idle in this pool at the same time." upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Max idle&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_MAX_IDLEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The maximum number of connections that can sit idle in this pool at the same time.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>16</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_MAX_WAIT#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_MAX_WAITs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Max wait" tooltip="The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception." upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Max wait&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_MAX_WAITs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>14</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_MIN_IDLE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_MIN_IDLEs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Min idle" tooltip="The minimum number of connections that will sit idle in this pool at the same time." upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Min idle&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_MIN_IDLEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The minimum number of connections that will sit idle in this pool at the same time.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>2</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_NAME#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_NAMEs.00" inputassistance="0" len="" nl="1" regex="" separator=";" showaspassword="0" text="DataSource name" tooltip="Name of the datasource to create." upper="0" required="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;DataSource name&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_NAMEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Name of the datasource to create.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>6</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_PWD#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_SHOWASPW>1</OPSE_SHOWASPW>
+        <OPSE_VALUE>--10</OPSE_VALUE>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_PWDs.00" inputassistance="0" len="" nl="1" regex="" separator=";" showaspassword="1" text="DataSource password" tooltip="Database password to be passed to our JDBC driver." upper="0" required="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;DataSource password&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_PWDs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;1&lt;/entry&gt;&lt;entry name="tooltip"&gt;Database password to be passed to our JDBC driver.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>8</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_TYPE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_VALUE>javax.sql.DataSource</OPSE_VALUE>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_TYPEs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Resource type" tooltip="Resource type. Default: javax.sql.DataSource" upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Resource type&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_TYPEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Resource type. Default: javax.sql.DataSource&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>7</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_URL#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_URLs.00" inputassistance="0" len="" nl="1" regex="" separator=";" showaspassword="0" text="Url" tooltip="Connection URL to be passed to our JDBC driver." upper="0" required="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Url&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_URLs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Connection URL to be passed to our JDBC driver.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>5</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_DS_USER#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_DS_USERs.00" inputassistance="0" len="" nl="1" regex="" separator=";" showaspassword="0" text="DataSource username" tooltip="Database username to be passed to our JDBC driver." upper="0" required="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;DataSource username&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_DS_USERs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Database username to be passed to our JDBC driver.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>34</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_FAIL_IF_EXISTS#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_FAIL_IF_EXISTSs.00" nl="1" quotes="" text="Fail if existing" tooltip="Boolean value specifying whether the job should fail in case the datasource already exists." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Fail if existing&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_FAIL_IF_EXISTSs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Boolean value specifying whether the job should fail in case the datasource already exists.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>1</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_HOME_DIR#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_HOME_DIRs.00" inputassistance="0" len="" nl="1" regex="" separator=";" showaspassword="0" text="Home" tooltip="Path to the Tomcat home directory on the executing machine. Eg: C:\Program Files\Apache Software Foundations\Tomcat7\" upper="0" required="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Home&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_HOME_DIRs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Path to the Tomcat home directory on the executing machine. Eg: C:\Program Files\Apache Software Foundations\Tomcat7\&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>37</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_JAVA_OPTIONS#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_JAVA_OPTIONSs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Java Runtime options" tooltip="Only used, if script-mode is used and not empty. Include any additional Java runtime options to use when starting up Tomcat. E.g. -DXmx800m for heap size etc. (Uses JAVA_OPTS parameter of the startup script)" upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Java Runtime options&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_JAVA_OPTIONSs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Only used, if script-mode is used and not empty. Include any additional Java runtime options to use when starting up Tomcat. E.g. -DXmx800m for heap size etc. (Uses JAVA_OPTS parameter of the startup script)&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>11</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_LOG_ABANDONED#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_LOG_ABANDONEDs.00" nl="1" quotes="" text="Log abandoned" tooltip="Set it to yes if you want DBCP to log a stack trace of the code which abandoned the database connection resources. This parameter adds the option logAbandoned=&amp;quot;...&amp;quot; to your datasource definition." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Log abandoned&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_LOG_ABANDONEDs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Set it to yes if you want DBCP to log a stack trace of the code which abandoned the database connection resources. This parameter adds the option logAbandoned=&amp;quot;...&amp;quot; to your datasource definition.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>30</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_MAX_OPEN_PREP_ST#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_NUMERIC</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>-1</OPSE_VALUE>
+        <OPSE_XUI>&lt;integer enabled="1" fill="b" focus="0" id="UC4RB_TC_MAX_OPEN_PREP_STs.00" max="" min="" nl="1" text="Max open prepared statements" tooltip="The maximum number of open statements that can be allocated from the statement pool at the same time." alt="1"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_NUMERIC&lt;/entry&gt;&lt;entry name="text"&gt;Max open prepared statements&lt;/entry&gt;&lt;entry name="min"/&gt;&lt;entry name="max"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_MAX_OPEN_PREP_STs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The maximum number of open statements that can be allocated from the statement pool at the same time.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/integer&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>integer</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>23</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_MIN_EVCT_IDLE_TIME#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_NUMERIC</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>-1</OPSE_VALUE>
+        <OPSE_XUI>&lt;integer enabled="1" fill="b" focus="0" id="UC4RB_TC_MIN_EVCT_IDLE_TIMEs.00" max="" min="" nl="1" text="Minimum evictable idle time (ms)" tooltip="The idle time in milliseconds after which a connection can be removed from the pool by the evictor." alt="1"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_NUMERIC&lt;/entry&gt;&lt;entry name="text"&gt;Minimum evictable idle time (ms)&lt;/entry&gt;&lt;entry name="min"/&gt;&lt;entry name="max"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_MIN_EVCT_IDLE_TIMEs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The idle time in milliseconds after which a connection can be removed from the pool by the evictor.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/integer&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>integer</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>22</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_NR_TEST_BETW_EVICT#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_NUMERIC</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>3</OPSE_VALUE>
+        <OPSE_XUI>&lt;integer enabled="1" fill="b" focus="0" id="UC4RB_TC_NR_TEST_BETW_EVICTs.00" max="" min="" nl="1" text="Number of tests per eviction runs (ms)" tooltip="The number of connections that will be checked for idleness by the evitor during each run of the evictor." alt="1"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_NUMERIC&lt;/entry&gt;&lt;entry name="text"&gt;Number of tests per eviction runs (ms)&lt;/entry&gt;&lt;entry name="min"/&gt;&lt;entry name="max"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_NR_TEST_BETW_EVICTs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The number of connections that will be checked for idleness by the evitor during each run of the evictor.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/integer&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>integer</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>28</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_POOL_PREP_STATEMENTS#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_POOL_PREP_STATEMENTSs.00" nl="1" quotes="" text="Pool prepared statements" tooltip="pool PreparedStatements and CallableStatements." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Pool prepared statements&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_POOL_PREP_STATEMENTSs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;pool PreparedStatements and CallableStatements.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>9</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_REMOVE_ABANDONED#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_REMOVE_ABANDONEDs.00" nl="1" quotes="" text="Remove abandoned" tooltip="A database connection pool creates and manages a pool of connections to a database. Recycling and reusing already existing connections to a database is more efficient than opening a new connection. There is one problem with connection pooling. A web application has to explicitly close ResultSet&amp;apos;s, Statement&amp;apos;s, and Connection&amp;apos;s. Failure of a web application to close these resources can result in them never being available again for reuse, a database connection pool &amp;quot;leak&amp;quot;. This can eventually result in your web application database connections failing if there are no more available connections. There is a solution to this problem. The Apache Commons DB connection pooling (DBCP) can be configured to track and recover these abandoned database connections. Not only can it recover them, but also generate a stack trace for the code which opened these resources and never closed them.    Set this parameter to yes to configure a DB connection pool DataSource so that abandoned database connections are removed and recycled. This parameter adds the option removeAbandoned=&amp;quot;...&amp;quot; to your datasource definition. See http://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.html#Preventing_database_connection_pool_leaks for more details." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Remove abandoned&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_REMOVE_ABANDONEDs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;A database connection pool creates and manages a pool of connections to a database. Recycling and reusing already existing connections to a database is more efficient than opening a new connection. There is one problem with connection pooling. A web application has to explicitly close ResultSet&amp;apos;s, Statement&amp;apos;s, and Connection&amp;apos;s. Failure of a web application to close these resources can result in them never being available again for reuse, a database connection pool &amp;quot;leak&amp;quot;. This can eventually result in your web application database connections failing if there are no more available connections. There is a solution to this problem. The Apache Commons DB connection pooling (DBCP) can be configured to track and recover these abandoned database connections. Not only can it recover them, but also generate a stack trace for the code which opened these resources and never closed them.
+
+Set this parameter to yes to configure a DB connection pool DataSource so that abandoned database connections are removed and recycled. This parameter adds the option removeAbandoned=&amp;quot;...&amp;quot; to your datasource definition. See http://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.html#Preventing_database_connection_pool_leaks for more details.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>10</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_REMOVE_ABND_TIMEOUT#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_NUMERIC</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>300</OPSE_VALUE>
+        <OPSE_XUI>&lt;integer enabled="1" fill="b" focus="0" id="UC4RB_TC_REMOVE_ABND_TIMEOUTs.00" max="" min="" nl="1" text="Remove abandoned timeout" tooltip="Use this attribute to set the number of seconds a database connection has been idle before it is considered abandoned. This adds the parameter removeAbandonedTimeout=&amp;quot;...&amp;quot; to your datasource definition." alt="1"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_NUMERIC&lt;/entry&gt;&lt;entry name="text"&gt;Remove abandoned timeout&lt;/entry&gt;&lt;entry name="min"/&gt;&lt;entry name="max"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_REMOVE_ABND_TIMEOUTs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Use this attribute to set the number of seconds a database connection has been idle before it is considered abandoned. This adds the parameter removeAbandonedTimeout=&amp;quot;...&amp;quot; to your datasource definition.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/integer&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>integer</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>3</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_RES_LINKS#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>YES</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_RES_LINKSs.00" nl="1" quotes="" text="Add resourcelink to context.xml" tooltip="If set to yes, the conf/context.xml configuration file is extended with a resourcelink pointing to the gloal resource in the server.xml file." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Add resourcelink to context.xml&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_RES_LINKSs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;If set to yes, the conf/context.xml configuration file is extended with a resourcelink pointing to the gloal resource in the server.xml file.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>36</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_RESTART_MODE#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.AUTOMIC_TOMCAT.PRV.VARA.SCRIPT_SERVICE</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>SCRIPT</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_RESTART_MODEs.00" nl="1" quotes="" text="Restart mode" tooltip="If &amp;apos;script mode&amp;apos; the action starts Tomcat using the startup.bat/startup.sh script of Tomcat found in UC4RB_TC_HOME_DIR#/bin/    If &amp;apos;no&amp;apos;, it is assumed, that the Windows service/Unix deamon is preconfigured and the action starts the service/deamon." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.AUTOMIC_TOMCAT.PRV.VARA.SCRIPT_SERVICE&lt;/entry&gt;&lt;entry name="text"&gt;Restart mode&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_RESTART_MODEs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;If &amp;apos;script mode&amp;apos; the action starts Tomcat using the startup.bat/startup.sh script of Tomcat found in UC4RB_TC_HOME_DIR#/bin/
+
+If &amp;apos;no&amp;apos;, it is assumed, that the Windows service/Unix deamon is preconfigured and the action starts the service/deamon.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>35</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_RESTART_TOMCAT#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>YES</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_RESTART_TOMCATs.00" nl="1" quotes="" text="Restart Tomcat" tooltip="As the datasource is put into the server.xml file, the Tomcat should normally be restarted in order that changes become effective. As default, Tomcat should be restarted." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Restart Tomcat&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_RESTART_TOMCATs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;As the datasource is put into the server.xml file, the Tomcat should normally be restarted in order that changes become effective. As default, Tomcat should be restarted.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>38</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_SERVICE_NAME#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_SERVICE_NAMEs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Service name" tooltip="Only used, if service-mode is used. For Windows: name of the service. For Unix: name of sour script in yur inet.d folder to call (e.g.: /etc/inetd./tomcat5)" upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Service name&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_SERVICE_NAMEs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Only used, if service-mode is used. For Windows: name of the service. For Unix: name of sour script in yur inet.d folder to call (e.g.: /etc/inetd./tomcat5)&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>19</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_TEST_ON_BORROW#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>YES</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_TEST_ON_BORROWs.00" nl="1" quotes="" text="Test on borrow" tooltip="Whether a connection should be validated using the validation query each time it is borrowed from the pool." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Test on borrow&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_TEST_ON_BORROWs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Whether a connection should be validated using the validation query each time it is borrowed from the pool.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>20</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_TEST_ON_RETURN#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_TEST_ON_RETURNs.00" nl="1" quotes="" text="Test on return" tooltip="Whether a connection should be validated using the validation query each time it is returned to the pool." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Test on return&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_TEST_ON_RETURNs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Whether a connection should be validated using the validation query each time it is returned to the pool.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>24</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_TEST_WHILE_IDLE#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.ITPA_SHARED.PRV.VARA.YES_NO</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>NO</OPSE_VALUE>
+        <OPSE_XUI>&lt;dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_TC_TEST_WHILE_IDLEs.00" nl="1" quotes="" text="Test while idle" tooltip="Whether a connection should be validated by the evictor thread using the validation query while sitting idle in the pool." alt="1" required="0"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.ITPA_SHARED.PRV.VARA.YES_NO&lt;/entry&gt;&lt;entry name="text"&gt;Test while idle&lt;/entry&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_TEST_WHILE_IDLEs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Whether a connection should be validated by the evictor thread using the validation query while sitting idle in the pool.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;/properties&gt;&lt;/dynradiogroup&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>dynradiogroup</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>21</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_TIME_BETW_EVICT#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_NUMERIC</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>1800000</OPSE_VALUE>
+        <OPSE_XUI>&lt;integer enabled="1" fill="b" focus="0" id="UC4RB_TC_TIME_BETW_EVICTs.00" max="" min="" nl="1" text="Time between eviction runs (ms)" tooltip="The number of milliseconds between consecutive runs of the evictor. Default: 30*60*1000 (30 minutes)" alt="1"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_NUMERIC&lt;/entry&gt;&lt;entry name="text"&gt;Time between eviction runs (ms)&lt;/entry&gt;&lt;entry name="min"/&gt;&lt;entry name="max"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_TIME_BETW_EVICTs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;The number of milliseconds between consecutive runs of the evictor. Default: 30*60*1000 (30 minutes)&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/integer&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>integer</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>18</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_VALD_QUERY_TIMEOUT#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_NUMERIC</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>-1</OPSE_VALUE>
+        <OPSE_XUI>&lt;integer enabled="1" fill="b" focus="0" id="UC4RB_TC_VALD_QUERY_TIMEOUTs.00" max="" min="" nl="1" text="Validation query timeout" tooltip="Timeout in seconds for the validation query to return." alt="1"&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_NUMERIC&lt;/entry&gt;&lt;entry name="text"&gt;Validation query timeout&lt;/entry&gt;&lt;entry name="min"/&gt;&lt;entry name="max"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_VALD_QUERY_TIMEOUTs.00&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;Timeout in seconds for the validation query to return.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="initvalue"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/integer&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>integer</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>17</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_TC_VALIDATION_QUERY#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text enabled="1" fill="b" focus="0" id="UC4RB_TC_VALIDATION_QUERYs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Validation query" tooltip="SQL query that can be used by the pool to validate connections before they are returned to the application. If specified, this query MUST be an SQL SELECT statement that returns at least one row." upper="0" alt="1" multiline="0" multilineIcon="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;&lt;properties&gt;&lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;&lt;entry name="text"&gt;Validation query&lt;/entry&gt;&lt;entry name="multiselect"&gt;0&lt;/entry&gt;&lt;entry name="separator"&gt;;&lt;/entry&gt;&lt;entry name="len"/&gt;&lt;entry name="quotes"/&gt;&lt;entry name="id"&gt;UC4RB_TC_VALIDATION_QUERYs.00&lt;/entry&gt;&lt;entry name="inputassistance"&gt;0&lt;/entry&gt;&lt;entry name="enabled"&gt;0&lt;/entry&gt;&lt;entry name="upper"&gt;0&lt;/entry&gt;&lt;entry name="focus"&gt;0&lt;/entry&gt;&lt;entry name="showaspassword"&gt;0&lt;/entry&gt;&lt;entry name="tooltip"&gt;SQL query that can be used by the pool to validate connections before they are returned to the application. If specified, this query MUST be an SQL SELECT statement that returns at least one row.&lt;/entry&gt;&lt;entry name="customfield"/&gt;&lt;entry name="modifiable"&gt;1&lt;/entry&gt;&lt;entry name="regex"/&gt;&lt;entry name="required"&gt;0&lt;/entry&gt;&lt;entry name="initvalue"/&gt;&lt;entry name="xmlkey"/&gt;&lt;entry name="xmlpath"/&gt;&lt;entry name="multiline"&gt;0&lt;/entry&gt;&lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;&lt;entry name="onchangereset"/&gt;&lt;entry name="resetable"&gt;1&lt;/entry&gt;&lt;/properties&gt;&lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+    </OPSE>
+  </PRPT>

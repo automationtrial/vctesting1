@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <VARA>
+    <OH>
+      <row>
+        <OH_IDNR>1008428</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CRDATE>2018-06-12 14:24:43.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PUB.INTERFACE</OH_NAME>
+        <OH_OTYPE>VARA</OH_OTYPE>
+        <OH_SUBTYPE>XML</OH_SUBTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OVD>
+      <row>
+        <OVD_COLCOUNT>5</OVD_COLCOUNT>
+        <OVD_NOTFOUND>I</OVD_NOTFOUND>
+        <OVD_SORTORDER>0</OVD_SORTORDER>
+        <OVD_SOURCE>XML</OVD_SOURCE>
+        <OVD_TYPE>C</OVD_TYPE>
+        <OVD_VRNAME>FREI</OVD_VRNAME>
+      </row>
+    </OVD>
+    <OVW>
+      <row>
+        <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
+        <OVW_VALUEX>&lt;interface&gt;&lt;snapshot type="PCK.AUTOMIC_TOMCAT"&gt;&lt;hooks&gt;&lt;extend-hook name="PCK.AUTOMIC_BOND.PRV.COM.SNAPSHOT.COMPARE"&gt;PCK.AUTOMIC_TOMCAT.PUB.ACTION.SNAPSHOT_COMPARE&lt;/extend-hook&gt;&lt;extend-hook name="PCK.AUTOMIC_BOND.PRV.COM.SNAPSHOT.COMPARE_DETAIL"&gt;PCK.AUTOMIC_TOMCAT.PUB.ACTION.SNAPSHOT_COMPARE_DETAIL&lt;/extend-hook&gt;&lt;extend-hook name="PCK.AUTOMIC_BOND.PRV.COM.SNAPSHOT.DELETE"&gt;PCK.AUTOMIC_TOMCAT.PUB.ACTION.SNAPSHOT_DELETE&lt;/extend-hook&gt;&lt;extend-hook name="PCK.AUTOMIC_BOND.PRV.SNAPSHOT.CREATE_LIVE"&gt;PCK.AUTOMIC_TOMCAT.PUB.ACTION.SNAPSHOT_LIVE&lt;/extend-hook&gt;&lt;/hooks&gt;&lt;display-name&gt;Tomcat&lt;/display-name&gt;&lt;in-contract&gt;PCK.AUTOMIC_TOMCAT.PUB.PROMPTSET.SNAPSHOT_LIVE&lt;/in-contract&gt;&lt;/snapshot&gt;&lt;discovery&gt;&lt;hooks&gt;&lt;extend-hook condition-value="TOMCAT" condition-variable="&amp;amp;UC4RB_TARGET_TYPE#" name="PCK.AUTOMIC_BOND.HOOK.DISCOVER_DEPLOYMENT_TARGET"&gt;PCK.AUTOMIC_TOMCAT.PUB.ACTION.DISCOVER_DEPLOYMENT_TARGET&lt;/extend-hook&gt;&lt;/hooks&gt;&lt;registry vara="PCK.AUTOMIC_BOND.PRV.DISCOVERY.DEPLOYMENT_TARGET.REGISTRY"&gt;&lt;entry key="TOMCAT" value-0="Tomcat" value-1="" value-2=""/&gt;&lt;/registry&gt;&lt;/discovery&gt;&lt;artifact-transfer&gt;&lt;registry vara="PCK.AUTOMIC_BOND.PUB.PROMPT_EXTERNAL_MAP"&gt;&lt;entry key="PCK.AUTOMIC_BOND.PUB.ACTION.GET_ARTIFACT/UC4RB_COPY_INCLUDES#/Tomcat" value-0="**/*.war" value-1="" value-2=""/&gt;&lt;entry key="PCK.AUTOMIC_BOND.PUB.ACTION.GET_ARTIFACT/UC4RB_COPY_RENAME_PATTERN#/Tomcat" value-0=".*" value-1="" value-2=""/&gt;&lt;entry key="PCK.AUTOMIC_BOND.PUB.ACTION.GET_ARTIFACT/UC4RB_COPY_RENAME_REPLACEMENT#/Tomcat" value-0="EXT:/custom/package_file_name" value-1="" value-2=""/&gt;&lt;/registry&gt;&lt;/artifact-transfer&gt;&lt;/interface&gt;</OVW_VALUEX>
+        <OVW_VRNAME>FREI</OVW_VRNAME>
+        <OVW_VVALUE>interface</OVW_VVALUE>
+      </row>
+    </OVW>
+  </VARA>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBS>
+    <OH>
+      <row>
+        <OH_IDNR>1008435</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_AUTODEACT>F</OH_AUTODEACT>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:24:45.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_DEACTWHEN>ANY_OK</OH_DEACTWHEN>
+        <OH_HOSTATTRTYPEDST>WINDOWS</OH_HOSTATTRTYPEDST>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.JOB.CREATE_DATASOURCE@WINDOWS</OH_NAME>
+        <OH_OTYPE>JOBS</OH_OTYPE>
+        <OH_OV_FLAG>1</OH_OV_FLAG>
+        <OH_PPFINHERIT>N</OH_PPFINHERIT>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PUB.INCLUDE.POWERSHELL_UTILITY</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.ATTACH</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_CONVERTED_STRING# = &amp;UC4RB_TC_HOME_DIR#</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CONVERT_SLASHES_WINDOWS_STYLE</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;UC4RB_TC_HOME_DIR# = &amp;UC4RB_CONVERTED_STRING#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!-------------------- Create Resource in server.xml --------------------------</OT_CONTENT>
+        <OT_CONTENT>echo "Check if server.xml exist in &amp;UC4RB_TC_HOME_DIR#\conf"</OT_CONTENT>
+        <OT_CONTENT>java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" XML ValidateDocument -xml "&amp;UC4RB_TC_HOME_DIR#\conf\server.xml"</OT_CONTENT>
+        <OT_CONTENT>if ( $LASTEXITCODE -gt 1 ) {</OT_CONTENT>
+        <OT_CONTENT>    $retcode = $LASTEXITCODE</OT_CONTENT>
+        <OT_CONTENT>    __uc_return( $retcode )</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>$resource = (java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" XML ExecutePath -xml "&amp;UC4RB_TC_HOME_DIR#\conf\server.xml" -x '//Server/GlobalNamingResources/Resource[@name=\"&amp;UC4RB_TC_DS_NAME#\"]' -filter all | Select-String "Return code: 0")</OT_CONTENT>
+        <OT_CONTENT>! Even if no Attribute found, the job does not jail</OT_CONTENT>
+        <OT_CONTENT>if ($resource) {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>   echo "Resource &amp;UC4RB_TC_DS_NAME# exists"</OT_CONTENT>
+        <OT_CONTENT>:  IF &amp;UC4RB_TC_FAIL_IF_EXISTS# = "YES"</OT_CONTENT>
+        <OT_CONTENT>         exit 1</OT_CONTENT>
+        <OT_CONTENT>:  ELSE</OT_CONTENT>
+        <OT_CONTENT>         exit 0</OT_CONTENT>
+        <OT_CONTENT>:  ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>}else {</OT_CONTENT>
+        <OT_CONTENT>  echo 'Adding resource:'</OT_CONTENT>
+        <OT_CONTENT>  echo '&amp;RESOURCE_ELEMENT#'</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" tomcat CreateDatasource "&amp;UC4RB_TC_HOME_DIR#\conf\server.xml" "//Server/GlobalNamingResources" '&amp;RESOURCE_ELEMENT#' &amp;UC4RB_TC_DS_PWD#</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!  -------------------- Check if resource is created --------------------------</OT_CONTENT>
+        <OT_CONTENT>  echo "Check if resource &amp;UC4RB_TC_DS_NAME# created"</OT_CONTENT>
+        <OT_CONTENT>  $resource = (java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" XML ExecutePath -xml "&amp;UC4RB_TC_HOME_DIR#\conf\server.xml" -x '//Server/GlobalNamingResources/Resource[@name=\"&amp;UC4RB_TC_DS_NAME#\"]' -filter all | Select-String "Return code: 0")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>  if ("$resource") {</OT_CONTENT>
+        <OT_CONTENT>    echo "Resource &amp;UC4RB_TC_DS_NAME# created"</OT_CONTENT>
+        <OT_CONTENT>  }else {</OT_CONTENT>
+        <OT_CONTENT>    echo "Resource &amp;UC4RB_TC_DS_NAME# is not created. Job fail"</OT_CONTENT>
+        <OT_CONTENT>    exit 2</OT_CONTENT>
+        <OT_CONTENT>  }</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT>!-------------------- Create Resource Link in context.xml --------------------------</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_TC_RES_LINKS# = "YES"</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>echo "Check if context.xml exist in &amp;UC4RB_TC_HOME_DIR#/conf"</OT_CONTENT>
+        <OT_CONTENT>java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" XML ValidateDocument -xml "&amp;UC4RB_TC_HOME_DIR#\conf\context.xml"</OT_CONTENT>
+        <OT_CONTENT>if ( $LASTEXITCODE -gt 1 ) {</OT_CONTENT>
+        <OT_CONTENT>    $retcode = $LASTEXITCODE</OT_CONTENT>
+        <OT_CONTENT>    __uc_return( $retcode )</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>$resource_link=(java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" XML ExecutePath -xml "&amp;UC4RB_TC_HOME_DIR#\conf\context.xml" -x '//Context/ResourceLink[@name=\"&amp;UC4RB_TC_DS_NAME#\"]' -filter all | Select-String "Return code: 0")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>if ($resource_link) {</OT_CONTENT>
+        <OT_CONTENT>   echo "Resource Link &amp;UC4RB_TC_DS_NAME# already exists!"</OT_CONTENT>
+        <OT_CONTENT>   exit 0</OT_CONTENT>
+        <OT_CONTENT>}else {</OT_CONTENT>
+        <OT_CONTENT>   echo 'Adding resource link:'</OT_CONTENT>
+        <OT_CONTENT>   echo '&amp;RESOURCE_LINK_ELEMENT#'</OT_CONTENT>
+        <OT_CONTENT>   java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" XML AddElement -xml "&amp;UC4RB_TC_HOME_DIR#\conf\context.xml" -x "//Context" -e '&amp;RESOURCE_LINK_ELEMENT#' -filter all</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_POWERSHELL_CMD@WINDOWS</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>!-------------------- Check if resource link is created --------------------------</OT_CONTENT>
+        <OT_CONTENT>echo "Check if resource link &amp;UC4RB_TC_DS_NAME# created"</OT_CONTENT>
+        <OT_CONTENT>$resource_link=(java -jar "&amp;$AGENT_RESOURCES_CLIENT#/tomcat-tool.jar" XML ExecutePath -xml "&amp;UC4RB_TC_HOME_DIR#\conf\context.xml" -x '//Context/ResourceLink[@name=\"&amp;UC4RB_TC_DS_NAME#\"]' -filter all | Select-String "Return code: 0")</OT_CONTENT>
+        <OT_CONTENT>echo $resource_link</OT_CONTENT>
+        <OT_CONTENT>if ($resource_link) {</OT_CONTENT>
+        <OT_CONTENT>   echo "Resource Link &amp;UC4RB_TC_DS_NAME# created!"</OT_CONTENT>
+        <OT_CONTENT>   exit 0</OT_CONTENT>
+        <OT_CONTENT>}else{</OT_CONTENT>
+        <OT_CONTENT>   echo "Resource Link &amp;UC4RB_TC_DS_NAME# is not created. Job fail!"</OT_CONTENT>
+        <OT_CONTENT>   exit 2</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>exit 0</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+      </OT_Type>
+      <OT_Type value="1">
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.PREPARE_JOB</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.PP_CREATE_DATASOURCE</OT_CONTENT>
+        <OT_CONTENT>! It is neccessary to add "\" before a double quote for cmd to recognise the xml element. That's not needed in Unix</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;RESOURCE_ELEMENT# = STR_SUBSTITUTE(&amp;RESOURCE_ELEMENT#, '"', '\"')</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;RESOURCE_LINK_ELEMENT# = STR_SUBSTITUTE(&amp;RESOURCE_LINK_ELEMENT#, '"', '\"')</OT_CONTENT>
+      </OT_Type>
+    </OT>
+    <JBA>
+      <row>
+        <JBA_ACTATRUN>1</JBA_ACTATRUN>
+        <JBA_HOSTATTRTYPE>WINDOWS</JBA_HOSTATTRTYPE>
+        <JBA_HOSTDST>&lt;WIN&gt;</JBA_HOSTDST>
+        <JBA_OUTPUT>2</JBA_OUTPUT>
+        <JBA_REST>1='c:\'2='2'3='0'G='0'H='0'L='0'r='1'5=''</JBA_REST>
+      </row>
+    </JBA>
+    <OV>
+      <row>
+        <OV_VALUE>C:\uc4\Agents\windows\bin</OV_VALUE>
+        <OV_VNAME>&amp;UC4RB_AGENT_WORKING_DIR#</OV_VNAME>
+      </row>
+      <row>
+        <OV_VALUE>false</OV_VALUE>
+        <OV_VNAME>&amp;UC4RB_DEBUG#</OV_VNAME>
+      </row>
+    </OV>
+    <ORB>
+      <row>
+      </row>
+    </ORB>
+  </JOBS>

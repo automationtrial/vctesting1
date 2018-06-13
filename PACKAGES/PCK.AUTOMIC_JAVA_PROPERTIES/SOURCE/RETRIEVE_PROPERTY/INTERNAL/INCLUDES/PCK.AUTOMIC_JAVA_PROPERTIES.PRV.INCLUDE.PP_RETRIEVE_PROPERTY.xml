@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008699</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:30:50.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_JAVA_PROPERTIES.PRV.INCLUDE.PP_RETRIEVE_PROPERTY</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;variableName# = "PCK.AUTOMIC_JDBC.PRV.VARA.TEMP.PP_RETRIEVE_PROPERTY_ENTRY.&amp;$ACTIVATOR_RUNID#.&amp;$PHYS_DATE_YYYYMMDD#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;variablePath# = ""</OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_JAVA_PROP_NAME# = ""</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CREATE_PASS_VALUES_VARIABLE</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;result# = ""</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;hnd# = PREP_PROCESS_REPORT(,,,"*")</OT_CONTENT>
+        <OT_CONTENT>:PROCESS &amp;hnd#</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;line# = GET_PROCESS_LINE(&amp;hnd#,1)</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;line# = STR_TRIM(&amp;line#)</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;pos# = STR_FIND(&amp;line#,"Properties-Result: ")</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:   IF &amp;pos# &gt; 0</OT_CONTENT>
+        <OT_CONTENT>:     SET &amp;pos# = &amp;pos#  + 19</OT_CONTENT>
+        <OT_CONTENT>:     SET &amp;line# = MID(&amp;line#,&amp;pos#)</OT_CONTENT>
+        <OT_CONTENT>:     SET &amp;result# = STR_TRIM(&amp;line#)</OT_CONTENT>
+        <OT_CONTENT>:     SET &amp;len# = STR_LENGTH(&amp;result#)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:     IF &amp;UC4RB_JAVA_PROP_NAME# = ""</OT_CONTENT>
+        <OT_CONTENT>:        SET &amp;keyPos# = STR_FIND(&amp;result#, "=")</OT_CONTENT>
+        <OT_CONTENT>:        IF &amp;keyPos# &gt; 0</OT_CONTENT>
+        <OT_CONTENT>:           SET &amp;keyPos# = &amp;keyPos# - 1</OT_CONTENT>
+        <OT_CONTENT>:           SET &amp;keyLine# = MID(&amp;result#,1,&amp;keyPos#)</OT_CONTENT>
+        <OT_CONTENT>:           SET &amp;key# = STR_TRIM(&amp;keyLine#)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:           SET &amp;keyPos# = &amp;keyPos# + 2</OT_CONTENT>
+        <OT_CONTENT>:           IF &amp;keyPos# &gt; &amp;len#</OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;value# = ""</OT_CONTENT>
+        <OT_CONTENT>:             ELSE</OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;valueLine# = MID(&amp;result#,&amp;keyPos#)</OT_CONTENT>
+        <OT_CONTENT>:              SET &amp;value# = STR_TRIM(&amp;valueLine#)</OT_CONTENT>
+        <OT_CONTENT>:           ENDIF</OT_CONTENT>
+        <OT_CONTENT>:           PUT_VAR &amp;variableName#, "&amp;key#", "&amp;value#"</OT_CONTENT>
+        <OT_CONTENT>:        ENDIF</OT_CONTENT>
+        <OT_CONTENT>:     ENDIF</OT_CONTENT>
+        <OT_CONTENT>:   ENDIF</OT_CONTENT>
+        <OT_CONTENT>:ENDPROCESS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:IF &amp;UC4RB_JAVA_PROP_NAME# &lt;&gt; ""</OT_CONTENT>
+        <OT_CONTENT>:  PSET &amp;UC4RB_OUT_VALUE# = &amp;result#</OT_CONTENT>
+        <OT_CONTENT>:ELSE</OT_CONTENT>
+        <OT_CONTENT>:  PSET &amp;UC4RB_OUT_ALL_VARS# = &amp;variableName#</OT_CONTENT>
+        <OT_CONTENT>:ENDIF</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008476</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:05.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.GET_NETWORK_STATISTICS@WINDOWS</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>function Get-NetworkStatistics</OT_CONTENT>
+        <OT_CONTENT>{</OT_CONTENT>
+        <OT_CONTENT>    $properties = 'LocalAddress','LocalPort','State','ProcessName','PID'</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>    netstat -ano | Select-String -Pattern '\s+(TCP)' | ForEach-Object {</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>        $item = $_.line.split(" ",[System.StringSplitOptions]::RemoveEmptyEntries)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>        if (($item[1] -notmatch '^\[::'))</OT_CONTENT>
+        <OT_CONTENT>        {</OT_CONTENT>
+        <OT_CONTENT>            if (($la = $item[1] -as [ipaddress]).AddressFamily -eq 'InterNetworkV6')</OT_CONTENT>
+        <OT_CONTENT>            {</OT_CONTENT>
+        <OT_CONTENT>               $localAddress = $la.IPAddressToString</OT_CONTENT>
+        <OT_CONTENT>               $localPort = $item[1].split('\]:')[-1]</OT_CONTENT>
+        <OT_CONTENT>            }</OT_CONTENT>
+        <OT_CONTENT>            else</OT_CONTENT>
+        <OT_CONTENT>            {</OT_CONTENT>
+        <OT_CONTENT>                $localAddress = $item[1].split(':')[0]</OT_CONTENT>
+        <OT_CONTENT>                $localPort = $item[1].split(':')[-1]</OT_CONTENT>
+        <OT_CONTENT>            }</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>            New-Object PSObject -Property @{</OT_CONTENT>
+        <OT_CONTENT>                PID = $item[-1]</OT_CONTENT>
+        <OT_CONTENT>                ProcessName = (Get-Process -Id $item[-1] -ErrorAction SilentlyContinue).Name</OT_CONTENT>
+        <OT_CONTENT>                State = if($item[0] -eq 'tcp') {$item[3]} else {$null}</OT_CONTENT>
+        <OT_CONTENT>                LocalAddress = $localAddress</OT_CONTENT>
+        <OT_CONTENT>                LocalPort = $localPort</OT_CONTENT>
+        <OT_CONTENT>            } | Select-Object -Property $properties</OT_CONTENT>
+        <OT_CONTENT>        }</OT_CONTENT>
+        <OT_CONTENT>    }</OT_CONTENT>
+        <OT_CONTENT>}</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>

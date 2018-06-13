@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <DOCU>
+    <OH>
+      <row>
+        <OH_IDNR>1008377</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:23:50.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_JDBC.PUB.DOC</OH_NAME>
+        <OH_OTYPE>DOCU</OH_OTYPE>
+        <OH_TITLE>Package documentation</OH_TITLE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <Docu type="0">
+<![CDATA[About Automic's JDBC Package
+================================
+
+This package contains actions that interact with database management systems via JDBC. The needed JDBC driver's are not included in this package.
+
+One can execute a query directly or provide a file full of queries that are executed sequentially.
+
+=Supported versions=
+
+See http://docs.automic.com/compatibility?len=Package.JDBC&comp=PCK.AUTOMIC_JDBC&version=1.0.0
+]]>      </Docu>
+    </ODOC>
+  </DOCU>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <PRPT>
+    <OH>
+      <row>
+        <OH_IDNR>1008503</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:16.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_MPELSE>1</OH_MPELSE>
+        <OH_MRTTIME>000000</OH_MRTTIME>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PUB.PROMPTSET.SNAPSHOT_LIVE</OH_NAME>
+        <OH_OTYPE>PRPT</OH_OTYPE>
+        <OH_QUEUE>CLIENT_QUEUE</OH_QUEUE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OPSA>
+      <row>
+        <OPSA_XUI>&lt;dialog height="506" icon="PRPT" id="PRPTS" left="0" top="0" width="420"&gt;&lt;readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Parameters"&gt;&lt;properties&gt;&lt;entry name="text"&gt;Parameters&lt;/entry&gt;&lt;entry name="modifiable"&gt;0&lt;/entry&gt;&lt;/properties&gt;&lt;/readpanel&gt;&lt;/dialog&gt;</OPSA_XUI>
+      </row>
+    </OPSA>
+    <OPSE>
+      <row>
+        <OPSE_LNR>5</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_APP_FILTER_EXCLUDE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_APP_FILTER_EXCLUDEs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Application exclude filter" tooltip="Defines which folders (incl. all subfolders) should be excluded from the application snapshot. If empty, no files are excluded." upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;
+         
+         &lt;properties&gt;
+            &lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;
+            &lt;entry name="text"&gt;Application exclude filter&lt;/entry&gt;
+            &lt;entry name="multiselect"&gt;0&lt;/entry&gt;
+            &lt;entry name="separator"&gt;;&lt;/entry&gt;
+            &lt;entry name="len"/&gt;
+            &lt;entry name="quotes"/&gt;
+            &lt;entry name="id"&gt;UC4RB_APP_FILTER_EXCLUDEs.00&lt;/entry&gt;
+            &lt;entry name="inputassistance"&gt;0&lt;/entry&gt;
+            &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+            &lt;entry name="upper"&gt;0&lt;/entry&gt;
+            &lt;entry name="focus"&gt;0&lt;/entry&gt;
+            &lt;entry name="showaspassword"&gt;0&lt;/entry&gt;
+            &lt;entry name="tooltip"&gt;Defines which folders (incl. all subfolders) should be excluded from the application snapshot. If empty, no files are excluded.&lt;/entry&gt;
+            &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+            &lt;entry name="regex"/&gt;
+            &lt;entry name="required"&gt;0&lt;/entry&gt;
+            &lt;entry name="initvalue"/&gt;
+            &lt;entry name="customfield"/&gt;
+            &lt;entry name="xmlkey"/&gt;
+            &lt;entry name="xmlpath"/&gt;
+            &lt;entry name="multiline"&gt;0&lt;/entry&gt;
+            &lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;
+            &lt;entry name="onchangereset"/&gt;
+            &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+         &lt;/properties&gt;
+      &lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>4</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_APP_SOURCE_PATH#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_VALUE>EXT:/tomcat/full_context_path</OPSE_VALUE>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_APP_SOURCE_PATHs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Application source path" tooltip="The source path of the web application to use when creating a snapshot." upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;
+         
+         &lt;properties&gt;
+            &lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;
+            &lt;entry name="text"&gt;Application source path&lt;/entry&gt;
+            &lt;entry name="multiselect"&gt;0&lt;/entry&gt;
+            &lt;entry name="separator"&gt;;&lt;/entry&gt;
+            &lt;entry name="len"/&gt;
+            &lt;entry name="quotes"/&gt;
+            &lt;entry name="id"&gt;UC4RB_APP_SOURCE_PATHs.00&lt;/entry&gt;
+            &lt;entry name="inputassistance"&gt;0&lt;/entry&gt;
+            &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+            &lt;entry name="upper"&gt;0&lt;/entry&gt;
+            &lt;entry name="focus"&gt;0&lt;/entry&gt;
+            &lt;entry name="showaspassword"&gt;0&lt;/entry&gt;
+            &lt;entry name="tooltip"&gt;The source path of the web application to use when creating a snapshot.&lt;/entry&gt;
+            &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+            &lt;entry name="regex"/&gt;
+            &lt;entry name="required"&gt;1&lt;/entry&gt;
+            &lt;entry name="initvalue"/&gt;
+            &lt;entry name="customfield"/&gt;
+            &lt;entry name="xmlkey"/&gt;
+            &lt;entry name="xmlpath"/&gt;
+            &lt;entry name="multiline"&gt;0&lt;/entry&gt;
+            &lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;
+            &lt;entry name="onchangereset"/&gt;
+            &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+         &lt;/properties&gt;
+      &lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>3</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_APPBASE_DIR#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_VALUE>EXT:/tomcat/appbase_directory</OPSE_VALUE>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_APPBASE_DIRs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" separator=";" showaspassword="0" text="Appbase directory" tooltip="" upper="0" required="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;
+      
+      &lt;properties&gt;
+        &lt;entry listparam="C,N" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;
+        &lt;entry name="xmlkey"/&gt;
+        &lt;entry name="xmlpath"/&gt;
+        &lt;entry name="text"&gt;Appbase directory&lt;/entry&gt;
+        &lt;entry name="multiline"&gt;0&lt;/entry&gt;
+        &lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;
+        &lt;entry name="multiselect"&gt;0&lt;/entry&gt;
+        &lt;entry name="separator"&gt;;&lt;/entry&gt;
+        &lt;entry name="len"/&gt;
+        &lt;entry name="quotes"/&gt;
+        &lt;entry name="id"&gt;UC4RB_APPBASE_DIRs.00&lt;/entry&gt;
+        &lt;entry name="regex"/&gt;
+        &lt;entry name="inputassistance"&gt;0&lt;/entry&gt;
+        &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+        &lt;entry name="required"&gt;1&lt;/entry&gt;
+        &lt;entry name="upper"&gt;0&lt;/entry&gt;
+        &lt;entry name="focus"&gt;0&lt;/entry&gt;
+        &lt;entry name="showaspassword"&gt;0&lt;/entry&gt;
+        &lt;entry name="tooltip"/&gt;
+        &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+        &lt;entry name="customfield"/&gt;
+        &lt;entry name="onchangereset"/&gt;
+        &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+      &lt;entry name="initvalue"/&gt;&lt;/properties&gt;
+    &lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>6</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_SERVER_FILTER_EXCLUDE#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_VALUE>temp,logs,work,bin,webapps</OPSE_VALUE>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_SERVER_FILTER_EXCLUDEs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Server exclude filter" tooltip="Defines which files should be excluded from the application snapshot. If empty, no files are excluded. You may use regular expressions. It is recommended for example to exclude the temp/, logs/ and work/ directories of your Tomcat server since they change continously. Excluding the webapps directory is also recommended, since it is already covered in the snapshot of the application." upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;
+         
+         &lt;properties&gt;
+            &lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;
+            &lt;entry name="text"&gt;Server exclude filter&lt;/entry&gt;
+            &lt;entry name="multiselect"&gt;0&lt;/entry&gt;
+            &lt;entry name="separator"&gt;;&lt;/entry&gt;
+            &lt;entry name="len"/&gt;
+            &lt;entry name="quotes"/&gt;
+            &lt;entry name="id"&gt;UC4RB_SERVER_FILTER_EXCLUDEs.00&lt;/entry&gt;
+            &lt;entry name="inputassistance"&gt;0&lt;/entry&gt;
+            &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+            &lt;entry name="upper"&gt;0&lt;/entry&gt;
+            &lt;entry name="focus"&gt;0&lt;/entry&gt;
+            &lt;entry name="showaspassword"&gt;0&lt;/entry&gt;
+            &lt;entry name="tooltip"&gt;Defines which files should be excluded from the application snapshot. If empty, no files are excluded. You may use regular expressions. It is recommended for example to exclude the temp/, logs/ and work/ directories of your Tomcat server since they change continously. Excluding the webapps directory is also recommended, since it is already covered in the snapshot of the application.&lt;/entry&gt;
+            &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+            &lt;entry name="regex"/&gt;
+            &lt;entry name="required"&gt;0&lt;/entry&gt;
+            &lt;entry name="initvalue"/&gt;
+            &lt;entry name="customfield"/&gt;
+            &lt;entry name="xmlkey"/&gt;
+            &lt;entry name="xmlpath"/&gt;
+            &lt;entry name="multiline"&gt;0&lt;/entry&gt;
+            &lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;
+            &lt;entry name="onchangereset"/&gt;
+            &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+         &lt;/properties&gt;
+      &lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>2</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_SERVER_SOURCE_PATH#</OPSE_NAME>
+        <OPSE_REFNAME>UC_DATATYPE_STRING</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_REQUIRED>1</OPSE_REQUIRED>
+        <OPSE_SEPARATEDBY>;</OPSE_SEPARATEDBY>
+        <OPSE_VALUE>EXT:/tomcat/server/home_directory</OPSE_VALUE>
+        <OPSE_XUI>&lt;text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_SERVER_SOURCE_PATHs.00" inputassistance="0" len="" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Server source path" tooltip="The source path of the server installation to use when creating a snapshot." upper="0"&gt;&lt;oninputassistant&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/&gt;&lt;/oninputassistant&gt;
+         
+         &lt;properties&gt;
+            &lt;entry listparam="C" name="reference" reftype="STATIC"&gt;UC_DATATYPE_STRING&lt;/entry&gt;
+            &lt;entry name="text"&gt;Server source path&lt;/entry&gt;
+            &lt;entry name="multiselect"&gt;0&lt;/entry&gt;
+            &lt;entry name="separator"&gt;;&lt;/entry&gt;
+            &lt;entry name="len"/&gt;
+            &lt;entry name="quotes"/&gt;
+            &lt;entry name="id"&gt;UC4RB_SERVER_SOURCE_PATHs.00&lt;/entry&gt;
+            &lt;entry name="inputassistance"&gt;0&lt;/entry&gt;
+            &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+            &lt;entry name="upper"&gt;0&lt;/entry&gt;
+            &lt;entry name="focus"&gt;0&lt;/entry&gt;
+            &lt;entry name="showaspassword"&gt;0&lt;/entry&gt;
+            &lt;entry name="tooltip"&gt;The source path of the server installation to use when creating a snapshot.&lt;/entry&gt;
+            &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+            &lt;entry name="regex"/&gt;
+            &lt;entry name="required"&gt;1&lt;/entry&gt;
+            &lt;entry name="initvalue"/&gt;
+            &lt;entry name="customfield"/&gt;
+            &lt;entry name="xmlkey"/&gt;
+            &lt;entry name="xmlpath"/&gt;
+            &lt;entry name="multiline"&gt;0&lt;/entry&gt;
+            &lt;entry name="multilineIcon"&gt;0&lt;/entry&gt;
+            &lt;entry name="onchangereset"/&gt;
+            &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+         &lt;/properties&gt;
+      &lt;/text&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>text</OPSE_XUI_TYPE>
+      </row>
+      <row>
+        <OPSE_LNR>1</OPSE_LNR>
+        <OPSE_MSGNR>-1</OPSE_MSGNR>
+        <OPSE_NAME>UC4RB_SNAPSHOT_MODE#</OPSE_NAME>
+        <OPSE_REFNAME>PCK.AUTOMIC_TOMCAT.PRV.VARA.APPLICATION_SERVER_BOTH</OPSE_REFNAME>
+        <OPSE_REFTYPE>VARA</OPSE_REFTYPE>
+        <OPSE_VALUE>BOTH</OPSE_VALUE>
+        <OPSE_XUI>&lt;combo alt="1" dynamic="0" enabled="1" fill="b" filter="0" focus="0" id="UC4RB_SNAPSHOT_MODEs.00" nl="1" quotes="" strict="1" text="Snapshot mode" tooltip="Defines which parts should be included in the snapshot:                    only application: only the application, without the server should be snapshotted. This is the default behaviour.                    only server: only the server part should be snapshotted.                    both: both the application and the server should be included in the snapshot." vtype="i"&gt;&lt;command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/&gt;&lt;command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/&gt;&lt;command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/&gt;
+         
+         
+         
+         &lt;properties&gt;
+            &lt;entry listparam="C" name="reference" reftype="STATIC"&gt;PCK.AUTOMIC_TOMCAT.PRV.VARA.APPLICATION_SERVER_BOTH&lt;/entry&gt;
+            &lt;entry name="text"&gt;Snapshot mode&lt;/entry&gt;
+            &lt;entry name="quotes"/&gt;
+            &lt;entry name="id"&gt;UC4RB_SNAPSHOT_MODEs.00&lt;/entry&gt;
+            &lt;entry name="enabled"&gt;0&lt;/entry&gt;
+            &lt;entry name="focus"&gt;0&lt;/entry&gt;
+            &lt;entry name="tooltip"&gt;Defines which parts should be included in the snapshot:
+    only application: only the application, without the server should be snapshotted. This is the default behaviour.
+    only server: only the server part should be snapshotted.
+    both: both the application and the server should be included in the snapshot.&lt;/entry&gt;
+            &lt;entry name="dynamic"&gt;0&lt;/entry&gt;
+            &lt;entry name="modifiable"&gt;1&lt;/entry&gt;
+            &lt;entry name="initvalue"/&gt;
+            &lt;entry name="customfield"/&gt;
+            &lt;entry name="xmlkey"/&gt;
+            &lt;entry name="xmlpath"/&gt;
+            &lt;entry name="onchangereset"/&gt;
+            &lt;entry name="resetable"&gt;1&lt;/entry&gt;
+         &lt;/properties&gt;
+      &lt;/combo&gt;</OPSE_XUI>
+        <OPSE_XUI_TYPE>combo</OPSE_XUI_TYPE>
+      </row>
+    </OPSE>
+  </PRPT>

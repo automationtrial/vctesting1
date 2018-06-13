@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <JOBI>
+    <OH>
+      <row>
+        <OH_IDNR>1008478</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CHILDFLAGS>00000000000000000000000000000000</OH_CHILDFLAGS>
+        <OH_CRDATE>2018-06-12 14:25:05.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>PCK.AUTOMIC_TOMCAT.PRV.INCLUDE.PP_LIST_APPLICATIONS</OH_NAME>
+        <OH_OTYPE>JOBI</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <OT>
+      <OT_Type value="0">
+        <OT_CONTENT>:SET &amp;variableName# = "PCK.AUTOMIC_TOMCAT.PRV.VARA.TEMP.LIST_APPLICATIONS_RESULT.&amp;$ACTIVATOR_RUNID#.&amp;$PHYS_DATE_YYYYMMDD#"</OT_CONTENT>
+        <OT_CONTENT>:SET &amp;variablePath# = ""</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:SET &amp;hnd# = PREP_PROCESS_REPORT(,,,"*")</OT_CONTENT>
+        <OT_CONTENT>:PROCESS &amp;hnd#</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;line# = GET_PROCESS_LINE(&amp;hnd#,1)</OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;line# = STR_TRIM(&amp;line#)</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:   SET &amp;is_ok# = STR_FIND(&amp;line#, "OK - Listed applications")</OT_CONTENT>
+        <OT_CONTENT>:   IF &amp;is_ok# &lt;&gt; 0</OT_CONTENT>
+        <OT_CONTENT>:INCLUDE PCK.ITPA_SHARED.PRV.INCLUDE.CREATE_PASS_VALUES_VARIABLE</OT_CONTENT>
+        <OT_CONTENT>:     IF &amp;ret# &lt;&gt; 0</OT_CONTENT>
+        <OT_CONTENT>:       MODIFY_STATE RETCODE = &amp;ret#</OT_CONTENT>
+        <OT_CONTENT>:       PRINT "Unable to create new variable object: UC4_RB_OUT_APPLICATIONS_&amp;$ACTIVATOR_RUNID#"</OT_CONTENT>
+        <OT_CONTENT>:     ELSE</OT_CONTENT>
+        <OT_CONTENT>:       DEFINE &amp;list_app#, string, 1000</OT_CONTENT>
+        <OT_CONTENT>:       FILL &amp;list_app#[] = STR_SPLIT(&amp;line#,"/")</OT_CONTENT>
+        <OT_CONTENT>:       SET &amp;app_count# = 2</OT_CONTENT>
+        <OT_CONTENT>:       DEFINE &amp;app_info#, string, 4</OT_CONTENT>
+        <OT_CONTENT>:       WHILE &amp;list_app#[&amp;app_count#] &gt; ""</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:         FILL &amp;app_info#[] = STR_SPLIT(&amp;list_app#[&amp;app_count#],":")</OT_CONTENT>
+        <OT_CONTENT>:         SET &amp;app_name# = &amp;app_info#[4]</OT_CONTENT>
+        <OT_CONTENT>:         SET &amp;app_status# = &amp;app_info#[2]</OT_CONTENT>
+        <OT_CONTENT>:         IF &amp;app_status# = "running" OR "stopped"</OT_CONTENT>
+        <OT_CONTENT>:           PUT_VAR &amp;variableName#, "&amp;app_name#", "&amp;app_status#"</OT_CONTENT>
+        <OT_CONTENT>:         ELSE</OT_CONTENT>
+        <OT_CONTENT>:           PUT_VAR &amp;variableName#, "ROOT", "&amp;app_info#[1]"</OT_CONTENT>
+        <OT_CONTENT>:         ENDIF</OT_CONTENT>
+        <OT_CONTENT>:         SET &amp;app_count# = &amp;app_count# + 1</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:       ENDWHILE</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:     ENDIF</OT_CONTENT>
+        <OT_CONTENT>:   ENDIF</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:ENDPROCESS</OT_CONTENT>
+        <OT_CONTENT></OT_CONTENT>
+        <OT_CONTENT>:PSET &amp;UC4RB_OUT_TC_LIST_APPS# = "&amp;variableName#"</OT_CONTENT>
+      </OT_Type>
+    </OT>
+  </JOBI>
