@@ -10,6 +10,9 @@
         <OH_CRUSERIDNR>5</OH_CRUSERIDNR>
         <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
         <OH_NAME>UC_CLIENT_SETTINGS</OH_NAME>
+        <OH_OPENDATE>2018-06-20 13:17:25.0</OH_OPENDATE>
+        <OH_OPENSESSION>1078169</OH_OPENSESSION>
+        <OH_OPENUSERIDNR>1001003</OH_OPENUSERIDNR>
         <OH_OTYPE>VARA</OH_OTYPE>
         <OH_SUBTYPE>STATIC</OH_SUBTYPE>
         <OH_TITLE>UC4 system settings per client</OH_TITLE>
@@ -31,7 +34,7 @@
       </row>
       <row>
         <OVW_OH_CLIENT>1</OVW_OH_CLIENT>
-        <OVW_VALUE1>git@github.com:srg-automic/testvc.git</OVW_VALUE1>
+        <OVW_VALUE1>git@file://E:/git/1.git</OVW_VALUE1>
         <OVW_VRNAME>FREI</OVW_VRNAME>
         <OVW_VVALUE>REMOTE_REPOSITORY_URL</OVW_VVALUE>
       </row>
