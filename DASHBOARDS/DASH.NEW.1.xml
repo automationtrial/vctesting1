@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <DASH>
+    <OH>
+      <row>
+        <OH_IDNR>1017001</OH_IDNR>
+        <OH_AEVERSION>11.2</OH_AEVERSION>
+        <OH_CRDATE>2018-06-27 13:25:31.0</OH_CRDATE>
+        <OH_CRUSERIDNR>1001003</OH_CRUSERIDNR>
+        <OH_LASTDATE>2012-11-15 12:35:49.0</OH_LASTDATE>
+        <OH_LASTRUNS>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</OH_LASTRUNS>
+        <OH_MODUSERIDNR>1001003</OH_MODUSERIDNR>
+        <OH_NAME>DASH.NEW.1</OH_NAME>
+        <OH_OTYPE>DASH</OH_OTYPE>
+        <OH_VERSIONINGID> </OH_VERSIONINGID>
+      </row>
+    </OH>
+    <ODOC>
+      <DASH type="0">
+<![CDATA[PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8ZGFzaGJvYXJkIGNvbHM9IjMiIHJvd3M9IjIiPgogICAgPGNvbmZpZ3VyYXRpb25zLz4KPC9kYXNoYm9hcmQ+Cg==]]>      </DASH>
+    </ODOC>
+    <OACL>
+      <row>
+        <OACL_AUTHIDNR>1001003</OACL_AUTHIDNR>
+        <OACL_BITCODE>11</OACL_BITCODE>
+        <OACL_LNR>1</OACL_LNR>
+      </row>
+    </OACL>
+  </DASH>
